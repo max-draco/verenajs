@@ -54,10 +54,7 @@ jobs:
         run: |
           git config user.name "Muslih Ali"  # Set author name
           git config user.email "info@muslih.tech"  # Set author email
-          git remote set-url origin git@github.com:muslihabdiker/vplusplus
-          
-          # Check for changes before committing
-          git diff --quiet || (git add . && git commit -m "Automated")
-          
-          # Push changes
-          git push origin main
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git checkout "${GITHUB_REF:11}"
+          git commit -am "Automated report"
+          git push
