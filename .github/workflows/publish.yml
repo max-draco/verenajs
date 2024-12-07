@@ -46,7 +46,7 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/vplusplus
-          chmod 600 ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/vplusplus
           ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
       # Push changes back to GitHub
