@@ -41,7 +41,7 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # Push changes back to GitHub using SSH
+      # Configure SSH for GitHub
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh
@@ -49,10 +49,14 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
+      # Configure Git to use SSH and push changes back to GitHub
       - name: Push changes back to GitHub
         run: |
           git config user.name "muslihabdiker"
           git config user.email "info@muslih.tech"
+          git remote set-url origin git@github.com:muslihabdiker/vplusplus.git
           git add .
           git commit -m "Automated update from GitHub Actions"
           git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
