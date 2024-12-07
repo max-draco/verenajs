@@ -7,7 +7,7 @@
     "start": "electron .",
     "dev": "webpack serve --mode development --open",
     "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "",  
     "lint": "eslint .",
     "format": "prettier --write \"src/**/*.{js,jsx,css,scss,html}\"",
     "package": "electron-packager . vplusplus --platform=all --arch=x64 --overwrite"
