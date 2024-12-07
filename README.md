@@ -1,6 +1,9 @@
 # v++ framework
 [valejs.northfast.co.ke](https://valejs.northfast.co.ke)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Build Status](https://github.com/user/repo/actions/workflows/main.yml/badge.svg)](https://github.com/user/repo/actions)
+
 **v++** is an innovative, flexible, and highly modular JavaScript framework designed to streamline the development of complex frontend applications. Built to handle everything from small-scale startups to enterprise-level systems, ValeJS makes it easy to create responsive, dynamic, and scalable applications. Whether you're working on a business application, security system, or military-grade software, ValeJS offers tools that help you deliver applications faster, with more efficiency, and at a higher level of security. 
 
 ⚡ **v++** brings modern tooling, state-of-the-art features, and a powerful component-based architecture to the table, making it an ideal choice for high-performance, secure, and feature-rich web applications. 🌐
