@@ -1,0 +1,22 @@
+{
+  "name": "vplusplus",
+  "version": "1.0.0-alpha",
+  "description": "valeJS-web & mobile framework",
+  "main": "sample.js",
+  "scripts": {
+    "test": "valeJS -test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muslihabdiker/valejs.git"
+  },
+  "keywords": [
+    "valeJS"
+  ],
+  "author": "muslih",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muslihabdiker/valejs/issues"
+  },
+  "homepage": "https://github.com/muslihabdiker/valejs#readme"
+}
