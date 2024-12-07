@@ -1,9 +1,27 @@
 # v++ framework
-[valejs.northfast.co.ke](https://valejs.northfast.co.ke)
-
+---
+![Built with Love](https://img.shields.io/badge/built%20with-%E2%9D%A4-red)  
+Built with Love from [Kenya](https://emojipedia.org/flag-of-kenya/) 
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg" width="20" /><br><br>
+# Badges,Licenses and Documentations
+Official Project Link: [valejs.northfast.co.ke](https://valejs.northfast.co.ke)<br><br>
+Official Documentation site:  [docs.northfast.co.ke](https://docs.northfast.co.ke)<br><br>
+# Badges
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build Status](https://github.com/muslihabdiker/vplusplus/actions/workflows/publish.yml/badge.svg)](https://github.com/muslihabdiker/vplusplus/actions)
+[![GitHub release](https://img.shields.io/github/v/release/muslihabdiker/vplusplus)](https://github.com/muslihabdiker/vplusplus/releases)
+[![Last Commit](https://img.shields.io/github/last-commit/muslihabdiker/vplusplus)](https://github.com/muslihabdiker/vplusplus/commits)
+[![Code Size](https://img.shields.io/github/languages/code-size/muslihabdiker/vplusplus)](https://github.com/muslihabdiker/vplusplus)
+[![Top Language](https://img.shields.io/github/languages/top/muslihabdiker/vplusplus)](https://github.com/muslihabdiker/vplusplus)
+[![Contributors](https://img.shields.io/github/contributors/muslihabdiker/vplusplus)](https://github.com/muslihabdiker/vplusplus/graphs/contributors)
+[![Issues](https://img.shields.io/github/issues/muslihabdiker/vplusplus)](https://github.com/muslihabdiker/vplusplus/issues)
+[![Forks](https://img.shields.io/github/forks/muslihabdiker/vplusplus)](https://github.com/muslihabdiker/vplusplus/network/members)
+[![Stars](https://img.shields.io/github/stars/muslihabdiker/vplusplus)](https://github.com/muslihabdiker/vplusplus/stargazers)
+[![Dependency Status](https://img.shields.io/librariesio/github/muslihabdiker/vplusplus)](https://libraries.io/github/muslihabdiker/vplusplus)
+![Platforms](https://img.shields.io/badge/platform-linux%20%7C%20windows%20%7C%20macos-lightgrey)
 
+---
+##About
 **v++** is an innovative, flexible, and highly modular JavaScript framework designed to streamline the development of complex frontend applications. Built to handle everything from small-scale startups to enterprise-level systems, ValeJS makes it easy to create responsive, dynamic, and scalable applications. Whether you're working on a business application, security system, or military-grade software, ValeJS offers tools that help you deliver applications faster, with more efficiency, and at a higher level of security. 
 
 ⚡ **v++** brings modern tooling, state-of-the-art features, and a powerful component-based architecture to the table, making it an ideal choice for high-performance, secure, and feature-rich web applications. 🌐
