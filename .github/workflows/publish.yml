@@ -3,7 +3,7 @@ name: Publish npm Package
 on:
   push:
     branches:
-      - main  # Adjust if your default branch is not 'main'
+      - main
 
 jobs:
   publish:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16  # Specify your Node.js version
+          node-version: 16
           cache: 'npm'
 
       # Install dependencies
@@ -49,14 +49,11 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-      # Configure Git to use SSH and push changes back to GitHub
+      # Push changes back to GitHub
       - name: Push changes back to GitHub
         run: |
-          git config user.name "muslihabdiker"
-          git config user.email "info@muslih.tech"
+          git config user.email "info@muslih.tech"  # Set author email
           git remote set-url origin git@github.com:muslihabdiker/vplusplus.git
           git add .
           git commit -m "Automated update from GitHub Actions"
           git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
