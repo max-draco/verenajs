@@ -1,6 +1,6 @@
 {
   "name": "vplusplus",
-  "version": "1.0.16-alpha",
+  "version": "1.0.17-alpha",
   "description": "valeJS-web & mobile framework",
   "main": "main.js",
   "scripts": {
