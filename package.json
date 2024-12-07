@@ -1,13 +1,13 @@
 {
   "name": "vplusplus",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "valeJS-web & mobile framework",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "dev": "webpack serve --mode development --open",
     "build": "webpack --mode production",
-    "test": "",  
+    "test": "",
     "lint": "eslint .",
     "format": "prettier --write \"src/**/*.{js,jsx,css,scss,html}\"",
     "package": "electron-packager . vplusplus --platform=all --arch=x64 --overwrite"
