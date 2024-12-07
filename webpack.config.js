@@ -11,11 +11,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin'); // Add this line
 
 module.exports = {
   entry: {
-    signup: path.resolve(__dirname, 'src/assets/js/modules/signup'),
-    login: path.resolve(__dirname, 'src/assets/js/modules/login'),
-    dashboard: path.resolve(__dirname, 'src/assets/js/modules/dashboard'),
-    forgot: path.resolve(__dirname, 'src/assets/js/modules/forgot'),
-    otp: path.resolve(__dirname, 'src/templates/otp'),
+    sample: path.resolve(__dirname, 'sample.js'),
+    // login: path.resolve(__dirname, 'src/assets/js/modules/login'),
+    // dashboard: path.resolve(__dirname, 'src/assets/js/modules/dashboard'),
+    // forgot: path.resolve(__dirname, 'src/assets/js/modules/forgot'),
+    // otp: path.resolve(__dirname, 'src/templates/otp'),
   },
   output: {
     filename: '[name]/js/[name].[contenthash].bundle.js',
