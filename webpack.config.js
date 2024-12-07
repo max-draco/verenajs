@@ -82,75 +82,75 @@ module.exports = {
           },
       ],
     }),
-    new HtmlWebpackPlugin({
-      filename: 'signup/index.html',
-      template: path.resolve(__dirname, 'src/templates/signup.html'),
-      chunks: ['signup'],
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        minifyCSS: true,
-        minifyJS: true,
-      },
-      inject: 'body',
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'login/index.html',
-      template: path.resolve(__dirname, 'src/templates/login.html'),
-      chunks: ['login'],
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        minifyCSS: true,
-        minifyJS: true,
-      },
-      inject: 'body',
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'otp/index.html',
-      template: path.resolve(__dirname, 'src/templates/otp/index.html'),
-      chunks: ['otp'],
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        minifyCSS: true,
-        minifyJS: true,
-      },
-      inject: 'body',
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'dashboard/index.html',
-      template: path.resolve(__dirname, 'src/templates/dashboard.html'),
-      chunks: ['dashboard'],
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        minifyCSS: true,
-        minifyJS: true,
-      },
-      inject: 'body',
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'forgot/index.html',
-      template: path.resolve(__dirname, 'src/templates/forgot.html'),
-      chunks: ['forgot'],
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        minifyCSS: true,
-        minifyJS: true,
-      },
-      inject: 'body',
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'signup/index.html',
+    //   template: path.resolve(__dirname, 'src/templates/signup.html'),
+    //   chunks: ['signup'],
+    //   minify: {
+    //     removeComments: true,
+    //     collapseWhitespace: true,
+    //     minifyCSS: true,
+    //     minifyJS: true,
+    //   },
+    //   inject: 'body',
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'login/index.html',
+    //   template: path.resolve(__dirname, 'src/templates/login.html'),
+    //   chunks: ['login'],
+    //   minify: {
+    //     removeComments: true,
+    //     collapseWhitespace: true,
+    //     minifyCSS: true,
+    //     minifyJS: true,
+    //   },
+    //   inject: 'body',
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'otp/index.html',
+    //   template: path.resolve(__dirname, 'src/templates/otp/index.html'),
+    //   chunks: ['otp'],
+    //   minify: {
+    //     removeComments: true,
+    //     collapseWhitespace: true,
+    //     minifyCSS: true,
+    //     minifyJS: true,
+    //   },
+    //   inject: 'body',
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'dashboard/index.html',
+    //   template: path.resolve(__dirname, 'src/templates/dashboard.html'),
+    //   chunks: ['dashboard'],
+    //   minify: {
+    //     removeComments: true,
+    //     collapseWhitespace: true,
+    //     minifyCSS: true,
+    //     minifyJS: true,
+    //   },
+    //   inject: 'body',
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'forgot/index.html',
+    //   template: path.resolve(__dirname, 'src/templates/forgot.html'),
+    //   chunks: ['forgot'],
+    //   minify: {
+    //     removeComments: true,
+    //     collapseWhitespace: true,
+    //     minifyCSS: true,
+    //     minifyJS: true,
+    //   },
+    //   inject: 'body',
+    // }),
     new MiniCssExtractPlugin({
       filename: '[name]/css/styles.[contenthash].css',
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
-    new JavaScriptObfuscator({
-      rotateStringArray: true,
-    }, ['signup/js/signup.*.bundle.js', 'login/js/login.*.bundle.js', 'dashboard/js/dashboard.*.bundle.js']),
+    // new JavaScriptObfuscator({
+    //   rotateStringArray: true,
+    // }, ['signup/js/signup.*.bundle.js', 'login/js/login.*.bundle.js', 'dashboard/js/dashboard.*.bundle.js']),
 
     // PWA Manifest plugin
     // new WebpackPwaManifest({
