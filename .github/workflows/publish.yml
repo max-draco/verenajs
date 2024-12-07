@@ -59,4 +59,4 @@ jobs:
           git commit -m "Automated update from GitHub Actions"
           git push origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.HUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
