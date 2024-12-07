@@ -7,24 +7,8 @@
 
 ---
 
-## Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [Getting Started](#getting-started)
-- [Structure](#structure)
-- [Components](#components)
-- [Customization](#customization)
-- [Security](#security)
-- [Performance Optimization](#performance-optimization)
-- [Internationalization (i18n)](#internationalization-i18n)
-- [Accessibility](#accessibility)
-- [CLI Tool](#cli-tool)
-- [Platform-Specific APIs](#platform-specific-apis)
-- [Contributing](#contributing)
-- [License](#license)
-- [Documentation Links](#documentation-links)
-  
+## Documentation
+- [Documentation](https://docs.northfast.co.ke) 
 ---
 
 ## Features ✨
