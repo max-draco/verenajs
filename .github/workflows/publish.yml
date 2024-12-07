@@ -47,13 +47,17 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
       # Push changes back to GitHub
       - name: Push changes back to GitHub
         run: |
+          git config user.name "Muslih Ali"  # Set author name
           git config user.email "info@muslih.tech"  # Set author email
           git remote set-url origin git@github.com:muslihabdiker/vplusplus.git
-          git add .
-          git commit -m "Automated update from GitHub Actions"
+          
+          # Check for changes before committing
+          git diff --quiet || (git add . && git commit -m "Automated update from GitHub Actions")
+          
+          # Push changes
           git push origin main
