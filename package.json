@@ -1,6 +1,6 @@
 {
   "name": "vplusplus",
-  "version": "1.0.24",
+  "version": "1.0.22",
   "description": "valeJS-web & mobile framework",
   "main": "main.js",
   "scripts": {
@@ -42,6 +42,7 @@
     "electron": "^26.0.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.1",
+    "mustache": "^4.2.0",
     "node-polyfill-webpack-plugin": "^4.0.0",
     "process": "^0.11.10",
     "react": "^18.3.1",
