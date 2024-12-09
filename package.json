@@ -1,6 +1,6 @@
 {
-  "name": "vplusplus",
-  "version": "1.0.28",
+  "name": "@muslihabdiker/vplusplus",
+  "version": "1.0.31",
   "description": "valeJS-web & mobile framework",
   "main": "main.js",
   "scripts": {
@@ -14,8 +14,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/muslihabdiker/vplusplus.git"
+    "url": "https://github.com/muslihabdiker/vplusplus"
   },
+  "publishConfig": {
+  "registry": "https://npm.pkg.github.com"
+},
   "keywords": [
     "vplusplus",
     "v++",
