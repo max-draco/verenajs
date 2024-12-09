@@ -1,6 +1,6 @@
 {
   "name": "vplusplus",
-  "version": "1.0.22",
+  "version": "1.0.26",
   "description": "valeJS-web & mobile framework",
   "main": "main.js",
   "scripts": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/muslihabdiker/vplusplus.git"
+    "url": "https://github.com/muslihabdiker/vplusplus.git"
   },
   "keywords": [
     "vplusplus",
