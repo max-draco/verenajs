@@ -1,6 +1,6 @@
 const Mustache = require('mustache');
 
-const view = {
+export const Valeview = {
   title: "Joe",
   calc: () => ( 2 + 4 )
 };

@@ -65,23 +65,23 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new CopyWebpackPlugin({
-      patterns: [
-          { 
-            from: path.resolve(__dirname, 'src/pwaAss'), 
-            to: 'src/pwaAss' 
-          }, // Ensure the pwaAss folder is copied
-          {
-            from: path.resolve(__dirname, 'manifest.json'), 
-            to: 'manifest.json',
-            noErrorOnMissing: true,
-                   globOptions: {
-            ignore: ['**/*.html'], // Ignore HTML if handled by HtmlWebpackPlugin
-          },
-          },
-      ],
-    }),
+    // new CleanWebpackPlugin(),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //       { 
+    //         from: path.resolve(__dirname, 'src/pwaAss'), 
+    //         to: 'src/pwaAss' 
+    //       }, // Ensure the pwaAss folder is copied
+    //       {
+    //         from: path.resolve(__dirname, 'manifest.json'), 
+    //         to: 'manifest.json',
+    //         noErrorOnMissing: true,
+    //                globOptions: {
+    //         ignore: ['**/*.html'], // Ignore HTML if handled by HtmlWebpackPlugin
+    //       },
+    //       },
+    //   ],
+    // }),
     // new HtmlWebpackPlugin({
     //   filename: 'signup/index.html',
     //   template: path.resolve(__dirname, 'src/templates/signup.html'),

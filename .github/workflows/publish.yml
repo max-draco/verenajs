@@ -53,8 +53,8 @@ jobs:
       # Push changes back to GitHub
       - name: Push changes back to GitHub
         run: |
-          git config user.name "Muslih Ali"  # Set author name
-          git config user.email "info@muslih.tech"  # Set author email
+          git config user.name "max"  # Set author name
+          git config user.email "max@paswad.com"  # Set author email
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
           git checkout "${GITHUB_REF:11}"
           git commit -am "Automated report"

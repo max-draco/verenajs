@@ -1,0 +1,216 @@
+.profileBox{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    border-radius: 0.4cm;
+    border-style: none;
+    padding: 0.1cm;
+    width: auto;
+    height: auto;
+    gap: 0.1cm;
+}
+.profileBoxHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0.4cm;
+    padding: 0.4cm;
+    background-color: transparent;
+    align-items: flex-start;
+    width: auto;
+    height: auto;
+
+}
+.profileBoxProfileImageHolder{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+}
+.profileBoxProfileImageHolder:hover{
+    cursor: pointer;
+}
+.profileBoxContent{
+    display: flex;
+
+}
+.profileBoxProfileImagePlaceholderHead{
+    position: relative;
+    align-items: center;
+    width: 0.5cm;
+    height: 0.5cm;
+    background-color: white;
+    border-radius: 100%;
+    border-style: none;
+}
+.profileBoxProfileImagePlaceholderBase{
+    position: relative;
+    width: 1cm;
+    height: 0.5cm;
+    background-color: whitesmoke;
+    border-top-left-radius: 0.5cm;
+    border-top-right-radius: 0.5cm;
+    border-bottom: none;
+    border-style: none;
+}
+.settingsControlHolder{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0.1cm;
+    background-color: transparent;
+    width: 1.2cm;
+    height: auto;
+}
+.settingsControlHolder:hover{
+    cursor: pointer;
+}
+.s1{
+position: relative;
+width: 0.4cm;
+height: 0.4cm;
+background-color: rgb(255, 15, 15);
+border-style: none;
+border-radius: 80%;
+transform: translateY(0px);
+}
+.s2{
+    position: relative;
+    width: 0.4cm;
+    height: 0.4cm;
+    background-color: rgb(10, 214, 10);
+    border-style: none;
+    border-radius: 80%;
+    transform: translateY(-8px);
+
+}
+.s3{
+    position: relative;
+    width: 0.4cm;
+    height: 0.4cm;
+    background-color: rgb(55, 75, 255);
+    border-style: none;
+    border-radius: 80%;
+    transform: translateY(-1px);
+}
+.s4{
+    position: relative;
+    width: 0.4cm;
+    height: 0.4cm;
+    background-color: yellow;
+    border-style: none;
+    border-radius: 80%;
+    transform: translateY(1px);
+}
+.s5{
+    position: relative;
+    width: 0.4cm;
+    height: 0.4cm;
+    background-color: pink;
+    border-style: none;
+    border-radius: 80%;
+    transform: translateY(8px);
+}
+.s6{
+    position: relative;
+    width: 0.4cm;
+    height: 0.4cm;
+    background-color: whitesmoke;
+    border-style: none;
+    border-radius: 80%;
+    transform: translateY(0px);
+}
+.profileBoxControls{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: white;
+    border-radius: 0.4cm;
+    padding: 0.3cm;
+    border-style: none;
+    width: auto;
+    height: 7cm;
+}
+.mainWrapper{
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    padding: 0.3cm;
+    align-items: center;
+}
+.title{
+    color: black;
+    text-align: center;
+}
+/* switch input */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .profileBoxControlsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
