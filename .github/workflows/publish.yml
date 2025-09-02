@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}
 
 permissions:
-  contents: write     # needed to push tags and create releases
+  contents: write
   packages: read
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # we need tags for the idempotency check
+          fetch-depth: 0
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -28,13 +28,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm i
-          fi
+          if [ -f package-lock.json ]; then npm ci; else npm i; fi
 
-      # Optional build (runs only if a build script exists)
       - name: Build
         shell: bash
         run: |
@@ -44,7 +39,6 @@ jobs:
             echo "No build script found, skipping."
           fi
 
-      # Tests: succeed even if you have none
       - name: Run tests
         shell: bash
         run: |
@@ -54,7 +48,6 @@ jobs:
             echo "No tests found, skipping."
           fi
 
-      # Read package version (fixed: no command-substitution-in-echo issue)
       - name: Read package version
         id: pkg
         shell: bash
@@ -63,7 +56,6 @@ jobs:
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "Package version: $VERSION"
 
-      # Skip if tag exists (idempotent)
       - name: Check if tag already exists
         id: tagcheck
         shell: bash
@@ -76,35 +68,28 @@ jobs:
             echo "exists=false" >> "$GITHUB_OUTPUT"
           fi
 
-      # npm auth
-      - name: Authenticate to npm
-        if: steps.tagcheck.outputs.exists == 'false'
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-          npm whoami
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      # Optional sanity: show name/version/public access
-      - name: Echo pkg info
+      - name: Configure npm auth (npmjs)
         if: steps.tagcheck.outputs.exists == 'false'
         shell: bash
-        run: |
-          echo "name: $(node -p "require('./package.json').name")"
-          echo "version: $(node -p "require('./package.json').version")"
-          echo "publishConfig: $(node -p "JSON.stringify(require('./package.json').publishConfig || {})")"
-
-      # Publish to npm
-      - name: Publish to npm
-        if: steps.tagcheck.outputs.exists == 'false'
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          # Add --access public for scoped public packages; harmless for unscoped too.
-          # Add --provenance if your repo is public and you want SLSA provenance.
+          echo "registry=https://registry.npmjs.org" > .npmrc
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+          echo "always-auth=true" >> .npmrc
+          export NPM_CONFIG_USERCONFIG="$PWD/.npmrc"
+          npm config get registry
+          npm whoami
+
+      - name: Publish to npm
+        if: steps.tagcheck.outputs.exists == 'false'
+        shell: bash
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          export NPM_CONFIG_USERCONFIG="$PWD/.npmrc"
           npm publish --access public
 
-      # Create and push git tag
       - name: Create git tag
         if: steps.tagcheck.outputs.exists == 'false'
         shell: bash
@@ -115,7 +100,6 @@ jobs:
           git tag -a "$TAG" -m "Release $TAG"
           git push origin "$TAG"
 
-      # Create GitHub Release
       - name: Create GitHub Release
         if: steps.tagcheck.outputs.exists == 'false'
         uses: softprops/action-gh-release@v2
