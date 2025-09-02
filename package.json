@@ -18,7 +18,7 @@
     "url": "git+https://github.com/muslihabdiker/vplusplus.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "keywords": [
     "verenajs",
