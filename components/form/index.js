@@ -1,4 +1,4 @@
-import * as formStyles from './form.module.css'; // Import all styles
+import formStyles from './form.module.css'; // Import all styles
 
 // Define a class for the form
 export class shadid {

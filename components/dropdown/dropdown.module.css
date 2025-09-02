@@ -1,6 +1,15 @@
 .dropdown {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
+  padding: 10px;
+  border-radius: 5px;
+  border: transparent;
+  width: fit-content; /* Expanded width */
+  font-size: 1rem;
+  background-color: transparent;
+}
+.dropdown:hover{
+  cursor: pointer;
+}
+.dropdown:focus {
+  outline: none;
+  border-color: #666;
+}

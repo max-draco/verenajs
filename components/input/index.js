@@ -1,4 +1,4 @@
-import * as styles from './input.module.css'; // Import all styles
+import styles from './input.module.css';   
 
 export function createInput({ label, name, type = 'text', placeholder }) {
   const inputWrapper = document.createElement('div');

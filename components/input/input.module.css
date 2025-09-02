@@ -20,6 +20,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  color: black;
 }
 
 /* Text input styling */
@@ -70,4 +71,10 @@
 /* Add transition effects to all inputs */
 .input {
   transition: all 0.3s ease;
+}
+.closeButton {
+  color: whitesmoke;
+  background-color: black;
+  border-color: white;
+  border-radius: 0.4cm;
 }

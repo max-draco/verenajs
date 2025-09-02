@@ -1,0 +1,90 @@
+/* components/bottomsheet/index.module.css */
+
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none; /* enabled when open */
+}
+
+.locked { /* applied on <html> to lock background scroll */
+  overflow: hidden;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transition: opacity 260ms cubic-bezier(.22, 1, .36, 1);
+  will-change: opacity;
+}
+
+.panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  max-height: var(--sheet-max-height, 85vh);
+  height: 7cm;
+  background: #ffffff;
+  color: #0b0f1a;
+
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 -16px 40px rgba(0,0,0,.28);
+
+  transform: translateY(100%);
+  transition: transform 360ms cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+  contain: content; /* paints/layout scoped for perf */
+}
+
+/* subtle grabber area */
+.handle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 12px 0 8px;
+  cursor: grab;
+  outline: none;
+}
+.handle::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 4px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+/* scrollable content area */
+.content {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 16px;
+}
+
+/* OPEN STATE */
+.open {
+  pointer-events: auto;
+}
+.open .backdrop {
+  opacity: 1;
+}
+.open .panel {
+  transform: translateY(0);
+}
+
+/* DRAGGING STATE — disable transitions for direct translates */
+.dragging .panel {
+  transition: none;
+}
+.dragging .backdrop {
+  transition: none;
+}

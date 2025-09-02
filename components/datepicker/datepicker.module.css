@@ -1,5 +1,9 @@
 .datePicker {
-    padding: 10px;
-    border-radius: 5px;
+    position: static;         /* NOT absolute/fixed */
+  display: inline-block;    /* NOT display: contents */
+  min-width: 220px;
+  height: 36px;
+  margin: 8px 0;
+  box-sizing: border-box;
   }
   

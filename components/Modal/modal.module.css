@@ -19,6 +19,14 @@
   }
   
   .closeButton {
+    background-color: red;
+    color: white;
+    border-radius: 0.4cm;
+    padding: 3px;
     margin-top: 10px;
   }
-  
+  .lnkDisable {
+    cursor: pointer;
+    pointer-events: none;
+    background-color: gray;
+  }

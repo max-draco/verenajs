@@ -1,10 +1,10 @@
-import {shadid} from './components/form';
+// import {shadid} from './components/form';
 import Router from './components/vRouter';
 import {createInput} from './components/input';
 import { createAlert } from './components/alert';
 import { createAvatar } from './components/avatar';
 import { createBadge } from './components/badge';
-import { bottomsheetDashboard } from './components/bottomsheet-modal/bottomsheet';
+import { createBottomSheet } from './components/bottomsheet';
 import { createButton } from './components/buttons';
 import { createNavbar } from './components/navbar';
 import { createCard } from './components/Card';
@@ -18,18 +18,18 @@ export {
   Router,
   shadid,
   createInput,
-  createAlert,
-  createAvatar,
-  createBadge,
+  // createAlert,
+  // createAvatar,
+  // createBadge,
   bottomsheetDashboard,
   createButton,
-  createNavbar,
+  // createNavbar,
   createCard,
-  createCheckbox,
-  createColorPicker,
-  createDatePicker,
-  createDropdown,
-  createLabel,
+  // createCheckbox,
+  // createColorPicker,
+  // createDatePicker,
+  // createDropdown,
+  // createLabel,
   createModal
 };
-export default vplusplus;
+export default verenajs;

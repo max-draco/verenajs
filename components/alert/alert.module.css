@@ -1,5 +1,5 @@
 
-:local.alert {
+.alert {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -10,23 +10,23 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: opacity 0.3s ease;
 }
-:local.alertInfo {
+.alertInfo {
   background-color: #d9f7ff;
   color: #0275d8;
 }
-:local.alertSuccess {
+.alertSuccess {
   background-color: #d4edda;
   color: #155724;
 }
-:local.alertWarning {
+.alertWarning {
   background-color: #fff3cd;
   color: #856404;
 }
-:local.alertError {
+.alertError {
   background-color: #f8d7da;
   color: #721c24;
 }
-:local.material-icons {
+.material-icons {
   font-size: 20px;
 }
 

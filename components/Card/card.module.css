@@ -1,12 +1,25 @@
 .card {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
+  /* defaults */
+  --card-align-x: flex-start;      /* align-items */
+  --card-align-y: flex-start;  /* justify-content */
+  --card-text: left;           /* text-align */
+
+  display: flex;
+  flex-direction: column;
+  align-items: var(--card-align-x);
+  justify-content: var(--card-align-y);
+  text-align: var(--card-text);
+
+  vertical-align: top;
+  padding: 15px;
+  border-radius: 0.4cm;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  background-color: black;
+  width: 50%;
+  height: auto;
+}
   .card h3 {
-    margin-top: 0;
+    color: var(--card-title-color, currentColor);
   }
   
   .card p {

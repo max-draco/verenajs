@@ -1,4 +1,5 @@
 // Updated Router Class with Enhanced Header and Routing Features
+import styles from '../styler/index.module.css';
 class Router {
     constructor({ defaultRoute = 'home', rootSelector = '#app', headerConfig = {} }) {
         this.routes = {};
@@ -28,9 +29,11 @@ class Router {
                 <h1>${this.headerConfig.title || ''}</h1>
             </div>
             <button id="backButton" class="back-button" disabled>⬅</button>
+            <button id="styler">Styler</button>
         </header>
         <main id="content" class="content-area"></main>
     `;
+ 
     this.rootElement.innerHTML = htmlStructure;
     
     // Safety checks and enhanced functionality
@@ -150,6 +153,10 @@ class Router {
             const route = window.location.hash.slice(1);
             this.loadRoute(route); // Load the route based on the updated hash
         });
+           const styler = document.getElementById('styler');
+    styler.addEventListener('click',()=>{
+     document.body.classList.add(styles.bodyFilter);
+    });
     }
 
     addRoute(route, { content, onLoad = null, headerConfig = {} }) {
