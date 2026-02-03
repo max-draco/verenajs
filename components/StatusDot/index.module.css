@@ -1,0 +1,1 @@
+.dot{display:inline-block;border-radius:50%}.sm{width:8px;height:8px}.md{width:12px;height:12px}.lg{width:16px;height:16px}.online{background:#22c55e}.offline{background:#6b7280}.busy{background:#ef4444}.away{background:#f59e0b}.pulse{animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}

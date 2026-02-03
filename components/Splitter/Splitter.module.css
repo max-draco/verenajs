@@ -1,0 +1,7 @@
+.splitter { display:flex; width:100%; height:100%; }
+.horizontal { flex-direction:row; }
+.vertical { flex-direction:column; }
+.pane { flex:var(--sz,50%) 0 0; overflow:auto; }
+.handle { width:5px; background:var(--border); cursor:col-resize; transition:background var(--transition-fast); flex-shrink:0; }
+.handle:hover { background:var(--accent); }
+.vertical .handle { width:100%; height:5px; cursor:row-resize; }

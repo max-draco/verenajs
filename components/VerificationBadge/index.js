@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createVerificationBadge({verified=true,size='sm'}){const c=document.createElement('span');c.className=`${s.badge} ${s[size]}`;c.innerHTML=verified?'✓':'';c.title=verified?'Verified':'Not verified';return c;}

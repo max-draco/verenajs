@@ -1,0 +1,1 @@
+.group{display:grid;gap:16px}@media(max-width:768px){.group{grid-template-columns:repeat(2,1fr)!important}}@media(max-width:480px){.group{grid-template-columns:1fr!important}}

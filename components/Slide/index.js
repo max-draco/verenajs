@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createSlide({direction='right',open=false,children=null}){const c=document.createElement('div');c.className=`${s.slide} ${s[direction]} ${open?s.open:''}`;if(children)c.appendChild(children);return{el:c,open:()=>c.classList.add(s.open),close:()=>c.classList.remove(s.open),toggle:()=>c.classList.toggle(s.open)};}

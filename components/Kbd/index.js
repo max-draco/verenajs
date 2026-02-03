@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createKbd({keys=[]}){const c=document.createElement('span');c.className=s.container;keys.forEach((k,i)=>{const kbd=document.createElement('kbd');kbd.className=s.kbd;kbd.textContent=k;c.appendChild(kbd);if(i<keys.length-1){const plus=document.createElement('span');plus.className=s.plus;plus.textContent='+';c.appendChild(plus);}});return c;}

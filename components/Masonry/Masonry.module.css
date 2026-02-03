@@ -1,0 +1,4 @@
+.masonry { column-count:var(--cols,3); column-gap:var(--gap,16px); }
+.item { break-inside:avoid; margin-bottom:var(--gap,16px); }
+@media(max-width:768px){.masonry{column-count:2!important}}
+@media(max-width:480px){.masonry{column-count:1!important}}

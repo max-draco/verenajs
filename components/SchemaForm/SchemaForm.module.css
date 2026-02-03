@@ -1,0 +1,8 @@
+.form { display:flex; flex-direction:column; gap:18px; }
+.group { display:flex; flex-direction:column; gap:6px; }
+.label { font-size:13px; font-weight:500; color:var(--text); }
+.input { padding:10px 14px; background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius-md); color:var(--text); font-size:14px; outline:none; }
+.input:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--blue-bg); }
+.desc { font-size:12px; color:var(--text-muted); }
+.submit { padding:11px 24px; background:var(--accent); color:var(--accent-text); border-radius:var(--radius-md); font-size:15px; font-weight:600; }
+.submit:hover { background:var(--accent-hover); }

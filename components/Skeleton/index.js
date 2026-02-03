@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createSkeleton({width='100%',height='20px',variant='rect',animate=true}){const sk=document.createElement('div');sk.className=`${s.skeleton} ${s[variant]} ${animate?s.animate:''}`;sk.style.width=width;sk.style.height=height;return sk;}

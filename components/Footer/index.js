@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createFooter({links=[],copyright=''}){const c=document.createElement('footer');c.className=s.footer;c.innerHTML=`<div class="${s.links}">${links.map(l=>`<a href="${l.href||'#'}">${l.label}</a>`).join('')}</div><div class="${s.copyright}">${copyright}</div>`;return c;}

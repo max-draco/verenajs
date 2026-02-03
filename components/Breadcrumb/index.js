@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createBreadcrumb({items=[],separator='/',onItemClick=()=>{}}){const c=document.createElement('nav');c.className=s.breadcrumb;items.forEach((item,i)=>{const a=document.createElement('a');a.className=`${s.item} ${i===items.length-1?s.active:''}`;a.textContent=item.label;a.href=item.href||'#';a.onclick=e=>{e.preventDefault();onItemClick(item,i);};c.appendChild(a);if(i<items.length-1){const sep=document.createElement('span');sep.className=s.sep;sep.textContent=separator;c.appendChild(sep);}});return c;}

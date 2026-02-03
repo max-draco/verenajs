@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createTimeline({items=[],variant='left'}){const c=document.createElement('div');c.className=`${s.timeline} ${s[variant]}`;items.forEach(item=>{const el=document.createElement('div');el.className=s.item;el.innerHTML=`<div class="${s.dot}" style="background:${item.color||'#3b82f6'}"></div><div class="${s.content}"><div class="${s.time}">${item.time||''}</div><div class="${s.title}">${item.title}</div>${item.description?`<div class="${s.desc}">${item.description}</div>`:''}</div>`;c.appendChild(el);});return c;}

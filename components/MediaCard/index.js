@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createMediaCard({type='image',src='',title='',description='',onClick=()=>{}}){const c=document.createElement('div');c.className=s.card;c.innerHTML=`<div class="${s.media}">${type==='video'?`<video src="${src}" muted></video><div class="${s.play}">▶</div>`:`<img src="${src}" alt="${title}">`}</div><div class="${s.content}"><h4 class="${s.title}">${title}</h4>${description?`<p class="${s.desc}">${description}</p>`:''}</div>`;c.onclick=onClick;return c;}

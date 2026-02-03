@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createTag({label='',color='#3b82f6',size='sm'}){const t=document.createElement('span');t.className=`${s.tag} ${s[size]}`;t.style.background=color+'20';t.style.color=color;t.style.borderColor=color;t.textContent=label;return t;}

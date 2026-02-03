@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createNewsCard({title='',source='',time='',image='',onClick=()=>{}}){const c=document.createElement('div');c.className=s.card;c.innerHTML=`${image?`<img class="${s.image}" src="${image}" alt="">`:''}<div class="${s.content}"><div class="${s.meta}"><span class="${s.source}">${source}</span><span class="${s.time}">${time}</span></div><h4 class="${s.title}">${title}</h4></div>`;c.onclick=onClick;return c;}

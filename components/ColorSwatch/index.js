@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createColorSwatch({colors=[],selected='',onChange=()=>{}}){const c=document.createElement('div');c.className=s.swatch;colors.forEach(color=>{const el=document.createElement('button');el.className=`${s.color} ${color===selected?s.selected:''}`;el.style.background=color;el.onclick=()=>{c.querySelectorAll('.'+s.color).forEach(b=>b.classList.remove(s.selected));el.classList.add(s.selected);onChange(color);};c.appendChild(el);});return c;}

@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createInline({gap='sm',align='center',children=[]}){const c=document.createElement('span');c.className=s.inline;c.style.gap=`var(--gap-${gap})`;c.style.alignItems=align;children.forEach(ch=>c.appendChild(ch));return c;}

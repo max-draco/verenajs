@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createErrorState({title='Something went wrong',message='',code='',onRetry=null}){const c=document.createElement('div');c.className=s.error;c.innerHTML=`<div class="${s.icon}">❌</div><h3 class="${s.title}">${title}</h3>${message?`<p class="${s.message}">${message}</p>`:''}${code?`<code class="${s.code}">${code}</code>`:''}${onRetry?`<button class="${s.retry}">Try Again</button>`:''}`;if(onRetry)c.querySelector('.'+s.retry).onclick=onRetry;return c;}

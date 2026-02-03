@@ -1,0 +1,1 @@
+.field{display:flex;flex-direction:column;gap:8px}.label{font-size:14px;font-weight:500;color:#f6f6f7}.required{color:#ef4444;margin-left:4px}.content{width:100%}.hint{font-size:12px;color:#6b7280}.error{font-size:12px;color:#ef4444}.hasError .content input,.hasError .content select,.hasError .content textarea{border-color:#ef4444}

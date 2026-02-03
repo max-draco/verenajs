@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createMarketMini({title='',price=50,change=0,onClick=()=>{}}){const c=document.createElement('div');c.className=s.mini;c.innerHTML=`<div class="${s.title}">${title}</div><div class="${s.price}">${price}¢</div><div class="${s.change} ${change>=0?s.up:s.down}">${change>=0?'↑':'↓'}${Math.abs(change).toFixed(1)}%</div>`;c.onclick=onClick;return c;}

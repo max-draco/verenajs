@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createCopyInput({value='',label=''}){const c=document.createElement('div');c.className=s.container;c.innerHTML=`${label?`<label class="${s.label}">${label}</label>`:''}<div class="${s.inputWrap}"><input type="text" class="${s.input}" value="${value}" readonly><button class="${s.copy}">Copy</button></div>`;c.querySelector('.'+s.copy).onclick=async()=>{await navigator.clipboard.writeText(value);c.querySelector('.'+s.copy).textContent='Copied!';setTimeout(()=>c.querySelector('.'+s.copy).textContent='Copy',2000);};return c;}

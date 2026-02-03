@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createCurrencyInput({currency='$',value=0,min=0,max=Infinity,step=0.01,onChange=()=>{}}){const c=document.createElement('div');c.className=s.container;c.innerHTML=`<span class="${s.symbol}">${currency}</span><input type="number" class="${s.input}" value="${value}" min="${min}" max="${max}" step="${step}">`;const input=c.querySelector('input');input.oninput=()=>{let v=parseFloat(input.value)||0;v=Math.min(Math.max(v,min),max);onChange(v);};return{el:c,getValue:()=>parseFloat(input.value)||0,setValue:v=>input.value=v};}

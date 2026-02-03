@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createButtonGroup({buttons=[],orientation='horizontal',size='md'}){const g=document.createElement('div');g.className=`${s.group} ${s[orientation]}`;buttons.forEach((btn,i)=>{const b=document.createElement('button');b.className=`${s.btn} ${s[size]} ${btn.active?s.active:''}`;b.textContent=btn.label;b.onclick=()=>btn.onClick?.();g.appendChild(b);});return g;}

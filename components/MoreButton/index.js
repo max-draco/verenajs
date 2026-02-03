@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createMoreButton({onClick=()=>{}}){const c=document.createElement('button');c.className=s.btn;c.innerHTML='⋯';c.onclick=onClick;return c;}

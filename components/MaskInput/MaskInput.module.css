@@ -1,0 +1,5 @@
+.wrapper { display:flex; flex-direction:column; gap:6px; }
+.label { font-size:13px; font-weight:500; color:var(--text); }
+.input { padding:10px 14px; background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius-md); color:var(--text); font-size:14px; font-family:var(--font-mono); letter-spacing:1px; outline:none; }
+.input:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--blue-bg); }
+.input::placeholder { color:var(--text-muted); font-family:var(--font-sans); letter-spacing:0; }

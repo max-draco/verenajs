@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createScale({visible=false,duration=200,children=null}){const c=document.createElement('div');c.className=s.scale;c.style.transitionDuration=duration+'ms';if(visible)c.classList.add(s.visible);if(children)c.appendChild(children);return{el:c,show:()=>c.classList.add(s.visible),hide:()=>c.classList.remove(s.visible)};}

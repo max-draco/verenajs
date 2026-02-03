@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createPercentChange({value=0,showArrow=true}){const c=document.createElement('span');c.className=`${s.change} ${value>=0?s.positive:s.negative}`;c.textContent=`${showArrow?(value>=0?'↑ ':'↓ '):''}${value>=0?'+':''}${value.toFixed(2)}%`;return c;}

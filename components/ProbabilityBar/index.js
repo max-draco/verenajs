@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createProbabilityBar({yesProb=50,noProb=50,showLabels=true}){const c=document.createElement('div');c.className=s.bar;c.innerHTML=`${showLabels?`<span class="${s.label} ${s.yes}">${yesProb}%</span>`:''}<div class="${s.track}"><div class="${s.yesFill}" style="width:${yesProb}%"></div><div class="${s.noFill}" style="width:${noProb}%"></div></div>${showLabels?`<span class="${s.label} ${s.no}">${noProb}%</span>`:''}`;return c;}

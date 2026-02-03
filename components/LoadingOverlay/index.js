@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createLoadingOverlay({message='Loading...',spinner=true}){const c=document.createElement('div');c.className=s.overlay;c.innerHTML=`${spinner?`<div class="${s.spinner}"></div>`:''}<div class="${s.message}">${message}</div>`;return{el:c,show:(target=document.body)=>{target.style.position='relative';target.appendChild(c);},hide:()=>c.remove(),setMessage:(msg)=>{c.querySelector('.'+s.message).textContent=msg;}};}

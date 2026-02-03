@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createQRCode({value='',size=150,color='#000',bgColor='#fff'}){const c=document.createElement('div');c.className=s.qr;c.style.width=size+'px';c.style.height=size+'px';c.innerHTML=`<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="${bgColor}"/><text x="50" y="55" text-anchor="middle" fill="${color}" font-size="10">QR:${value.slice(0,10)}</text></svg>`;return c;}

@@ -1,0 +1,8 @@
+.slider { width:100%; padding:0 8px; }
+.header { display:flex; justify-content:space-between; margin-bottom:12px; }
+.label { font-size:13px; font-weight:500; color:var(--text); }
+.val { font-size:13px; color:var(--accent); font-weight:600; }
+.track { position:relative; height:4px; background:var(--border); border-radius:2px; margin:16px 0; }
+.range { position:absolute; height:100%; background:var(--accent); border-radius:2px; }
+.thumb { position:absolute; width:20px; height:20px; background:var(--surface); border:2.5px solid var(--accent); border-radius:50%; top:50%; transform:translate(-50%,-50%); cursor:grab; z-index:1; transition:box-shadow var(--transition-fast); }
+.thumb:hover,.thumb:focus { box-shadow:0 0 0 4px var(--blue-bg); outline:none; }

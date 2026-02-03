@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createHighlight({content='',color='yellow'}){const h=document.createElement('mark');h.className=`${s.highlight} ${s[color]}`;h.textContent=content;return h;}

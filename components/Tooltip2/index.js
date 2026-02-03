@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createTooltip2({content='',position='top'}){return{attach:(el)=>{const tip=document.createElement('div');tip.className=`${s.tooltip} ${s[position]}`;tip.textContent=content;el.style.position='relative';el.onmouseenter=()=>{el.appendChild(tip);};el.onmouseleave=()=>{tip.remove();};}};}

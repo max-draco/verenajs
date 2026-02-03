@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createOutcomeButton({label='',price=0,side='yes',selected=false,onClick=()=>{}}){const c=document.createElement('button');c.className=`${s.btn} ${s[side]} ${selected?s.selected:''}`;c.innerHTML=`<span class="${s.label}">${label}</span><span class="${s.price}">${(price*100).toFixed(0)}¢</span>`;c.onclick=onClick;return c;}

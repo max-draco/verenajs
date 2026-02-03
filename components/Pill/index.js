@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createPill({label='',icon='',active=false,onClick=()=>{}}){const p=document.createElement('button');p.className=`${s.pill} ${active?s.active:''}`;p.innerHTML=(icon?`<span class="${s.icon}">${icon}</span>`:'')+label;p.onclick=onClick;return{el:p,setActive:v=>p.classList.toggle(s.active,v)};}

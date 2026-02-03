@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createBarcode({value='',height=60}){const c=document.createElement('div');c.className=s.barcode;c.style.height=height+'px';let bars='';for(let i=0;i<value.length*3;i++){const w=Math.random()>0.5?2:1;bars+=`<div class="${s.bar}" style="width:${w}px"></div>`;}c.innerHTML=`<div class="${s.bars}">${bars}</div><div class="${s.value}">${value}</div>`;return c;}

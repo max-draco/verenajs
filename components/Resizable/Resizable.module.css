@@ -1,0 +1,7 @@
+.resizable { position:relative; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); box-sizing:border-box; }
+.content { width:100%; height:100%; overflow:auto; }
+.handle { position:absolute; z-index:1; }
+.hs { bottom:0; left:8px; right:8px; height:6px; cursor:ns-resize; }
+.he { right:0; top:8px; bottom:8px; width:6px; cursor:ew-resize; }
+.hse { right:0; bottom:0; width:12px; height:12px; cursor:nwse-resize; }
+.handle:hover { background:var(--accent); opacity:0.5; border-radius:2px; }

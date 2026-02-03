@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createMinicard({title='',value='',icon='',color='#3b82f6'}){const c=document.createElement('div');c.className=s.card;c.innerHTML=`<div class="${s.icon}" style="background:${color}20;color:${color}">${icon}</div><div class="${s.content}"><div class="${s.value}">${value}</div><div class="${s.title}">${title}</div></div>`;return c;}

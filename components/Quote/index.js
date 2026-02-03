@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createQuote({content='',author='',variant='default'}){const q=document.createElement('blockquote');q.className=`${s.quote} ${s[variant]}`;q.innerHTML=`<p class="${s.text}">${content}</p>${author?`<cite class="${s.author}">— ${author}</cite>`:''}`;return q;}

@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createText({content='',size='md',weight='normal',color='default',truncate=false,lines=0}){const t=document.createElement('span');t.className=`${s.text} ${s[size]} ${s[weight]} ${s[color]} ${truncate?s.truncate:''}`;if(lines>0){t.style.webkitLineClamp=lines;t.classList.add(s.clamp);}t.textContent=content;return t;}

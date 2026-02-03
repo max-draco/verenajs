@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createActionBar({actions=[]}){const c=document.createElement('div');c.className=s.bar;actions.forEach(a=>{const btn=document.createElement('button');btn.className=`${s.btn} ${a.primary?s.primary:''}`;btn.innerHTML=`${a.icon?`<span>${a.icon}</span>`:''}${a.label}`;btn.onclick=a.onClick;c.appendChild(btn);});return c;}

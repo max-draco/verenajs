@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createFloatingButton({icon='➕',position='bottom-right',onClick=()=>{},tooltip=''}){const f=document.createElement('button');f.className=`${s.fab} ${s[position.replace('-','')]}`;f.innerHTML=icon;f.onclick=onClick;if(tooltip){f.title=tooltip;}return f;}

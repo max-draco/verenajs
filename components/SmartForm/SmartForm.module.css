@@ -1,0 +1,12 @@
+.form { display:flex; flex-direction:column; gap:16px; }
+.group { display:flex; flex-direction:column; gap:6px; }
+.label { font-size:13px; font-weight:500; color:var(--text); }
+.req { color:var(--red); margin-left:3px; }
+.input { padding:10px 14px; background:var(--surface); border:1.5px solid var(--border); border-radius:var(--radius-md); color:var(--text); font-size:14px; transition:border-color var(--transition-fast),box-shadow var(--transition-fast); }
+.input:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--blue-bg); outline:none; }
+.input::placeholder { color:var(--text-muted); }
+.err { border-color:var(--red)!important; }
+.err:focus { box-shadow:0 0 0 3px var(--red-bg)!important; }
+.error { font-size:12px; color:var(--red); min-height:16px; }
+.submit { padding:11px 24px; background:var(--accent); color:var(--accent-text); border-radius:var(--radius-md); font-size:15px; font-weight:600; }
+.submit:hover { background:var(--accent-hover); }

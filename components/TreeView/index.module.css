@@ -1,0 +1,1 @@
+.tree{font-size:14px}.item{display:flex;align-items:center;gap:8px;padding:8px 12px;color:#f6f6f7;cursor:pointer;transition:background .2s}.item:hover{background:#1a1a2e;border-radius:4px}.toggle{width:16px;font-size:10px;color:#a0a0a0;cursor:pointer}.icon{font-size:16px}.label{flex:1}.children{margin-left:8px}

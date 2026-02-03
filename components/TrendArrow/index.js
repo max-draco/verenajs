@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createTrendArrow({value=0,size='md'}){const c=document.createElement('span');c.className=`${s.arrow} ${s[size]} ${value>0?s.up:value<0?s.down:s.neutral}`;c.innerHTML=value>0?'↑':value<0?'↓':'→';return c;}

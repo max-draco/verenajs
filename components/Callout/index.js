@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createCallout({type='info',title='',content='',icon=''}){const c=document.createElement('div');c.className=`${s.callout} ${s[type]}`;const icons={info:'ℹ️',success:'✅',warning:'⚠️',error:'❌',tip:'💡'};c.innerHTML=`<div class="${s.icon}">${icon||icons[type]||''}</div><div class="${s.body}">${title?`<div class="${s.title}">${title}</div>`:''}<div class="${s.content}">${content}</div></div>`;return c;}

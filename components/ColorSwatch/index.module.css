@@ -1,0 +1,1 @@
+.swatch{display:flex;flex-wrap:wrap;gap:8px}.color{width:32px;height:32px;border-radius:8px;border:2px solid transparent;cursor:pointer;transition:all .2s}.color:hover{transform:scale(1.1)}.selected{border-color:#fff;box-shadow:0 0 0 2px #3b82f6}

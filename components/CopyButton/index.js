@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createCopyButton({text='',label='Copy',copiedLabel='Copied!'}){const c=document.createElement('button');c.className=s.btn;c.textContent=label;c.onclick=async()=>{await navigator.clipboard.writeText(text);c.textContent=copiedLabel;c.classList.add(s.copied);setTimeout(()=>{c.textContent=label;c.classList.remove(s.copied);},2000);};return c;}

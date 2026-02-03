@@ -1,0 +1,1 @@
+.funnel{display:flex;flex-direction:column;gap:8px;background:#0f0f18;border-radius:12px;padding:16px}.step{display:flex;align-items:center;gap:12px}.bar{height:36px;border-radius:4px;display:flex;align-items:center;justify-content:center;transition:width .3s}.value{color:#fff;font-weight:600;font-size:14px}.label{font-size:13px;color:#a0a0a0;white-space:nowrap}

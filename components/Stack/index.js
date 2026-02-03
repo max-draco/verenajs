@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createStack({direction='vertical',gap='md',align='stretch',justify='start',children=[]}){const st=document.createElement('div');st.className=`${s.stack} ${s[direction]}`;st.style.gap=`var(--gap-${gap})`;st.style.alignItems=align;st.style.justifyContent=justify;children.forEach(c=>st.appendChild(c));return st;}

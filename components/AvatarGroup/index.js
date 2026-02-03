@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createAvatarGroup({avatars=[],max=4,size='md'}){const g=document.createElement('div');g.className=`${s.group} ${s[size]}`;const show=avatars.slice(0,max);show.forEach((a,i)=>{const av=document.createElement('img');av.className=s.avatar;av.src=a.src;av.alt=a.name||'';av.style.zIndex=max-i;g.appendChild(av);});if(avatars.length>max){const more=document.createElement('span');more.className=s.more;more.textContent=`+${avatars.length-max}`;g.appendChild(more);}return g;}

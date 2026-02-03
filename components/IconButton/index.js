@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createIconButton({icon='',size='md',variant='default',disabled=false,onClick=()=>{}}){const b=document.createElement('button');b.className=`${s.iconBtn} ${s[size]} ${s[variant]}`;b.disabled=disabled;b.innerHTML=icon;b.onclick=onClick;return b;}

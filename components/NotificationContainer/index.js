@@ -1,0 +1,3 @@
+import s from './index.module.css';
+import{createNotification}from'../Notification/index.js';
+export function createNotificationContainer({position='top-right'}){const c=document.createElement('div');c.className=`${s.container} ${s[position.replace('-','')]}`;document.body.appendChild(c);return{show:(opts)=>{const n=createNotification({...opts,onClose:()=>{opts.onClose?.();}});c.appendChild(n);return n;},clear:()=>{c.innerHTML='';},destroy:()=>c.remove()};}

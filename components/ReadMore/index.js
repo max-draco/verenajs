@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createReadMore({content='',maxLength=200}){const c=document.createElement('div');c.className=s.readmore;const truncated=content.length>maxLength;let expanded=false;const render=()=>{const text=expanded||!truncated?content:content.slice(0,maxLength)+'...';c.innerHTML=`<p class="${s.text}">${text}</p>${truncated?`<button class="${s.toggle}">${expanded?'Show less':'Read more'}</button>`:''}`; if(truncated)c.querySelector('.'+s.toggle).onclick=()=>{expanded=!expanded;render();};};render();return c;}

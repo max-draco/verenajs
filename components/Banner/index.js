@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createBanner({type='info',message='',action=null,dismissible=true,onDismiss=()=>{}}){const c=document.createElement('div');c.className=`${s.banner} ${s[type]}`;c.innerHTML=`<span class="${s.message}">${message}</span>${action?`<button class="${s.action}">${action.label}</button>`:''}${dismissible?`<button class="${s.dismiss}">×</button>`:''}`;if(action)c.querySelector('.'+s.action).onclick=action.onClick;if(dismissible)c.querySelector('.'+s.dismiss).onclick=()=>{c.remove();onDismiss();};return c;}

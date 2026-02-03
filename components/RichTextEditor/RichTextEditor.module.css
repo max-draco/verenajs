@@ -1,0 +1,6 @@
+.editor { border:1.5px solid var(--border); border-radius:var(--radius-md); overflow:hidden; background:var(--surface); }
+.toolbar { display:flex; gap:4px; padding:8px 10px; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+.toolBtn { padding:5px 10px; background:transparent; color:var(--text-secondary); border-radius:var(--radius-sm); font-size:13px; font-weight:600; }
+.toolBtn:hover { background:var(--surface-hover); color:var(--text); }
+.area { min-height:160px; padding:14px 16px; color:var(--text); font-size:14px; line-height:1.6; outline:none; position:relative; }
+.ph { position:absolute; top:14px; left:16px; color:var(--text-muted); pointer-events:none; }

@@ -1,0 +1,4 @@
+.grid { display:grid; grid-template-columns:repeat(var(--cols,12),1fr); gap:var(--gap,16px); width:100%; }
+.item { grid-column:span var(--span,1); }
+@media(max-width:992px){.grid{grid-template-columns:repeat(6,1fr)}.item{grid-column:span min(var(--span,1),6)}}
+@media(max-width:576px){.grid{grid-template-columns:1fr}.item{grid-column:span 1}}

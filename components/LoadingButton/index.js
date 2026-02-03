@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createLoadingButton({label='Submit',loadingText='Loading...',onClick=async()=>{}}){const b=document.createElement('button');b.className=s.btn;b.textContent=label;b.onclick=async()=>{b.disabled=true;b.classList.add(s.loading);b.innerHTML=`<span class="${s.spinner}"></span>${loadingText}`;try{await onClick();}finally{b.disabled=false;b.classList.remove(s.loading);b.textContent=label;}};return b;}

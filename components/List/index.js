@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createList({items=[],variant='default',onItemClick=null}){const ul=document.createElement('ul');ul.className=`${s.list} ${s[variant]}`;items.forEach((item,i)=>{const li=document.createElement('li');li.className=s.item;li.innerHTML=typeof item==='string'?item:`${item.icon?`<span class="${s.icon}">${item.icon}</span>`:''}${item.label}${item.badge?`<span class="${s.badge}">${item.badge}</span>`:''}`;if(onItemClick)li.onclick=()=>onItemClick(item,i);ul.appendChild(li);});return ul;}

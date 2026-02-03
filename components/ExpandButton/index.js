@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createExpandButton({expanded=false,onChange=()=>{}}){const c=document.createElement('button');c.className=`${s.btn} ${expanded?s.expanded:''}`;c.innerHTML='▼';c.onclick=()=>{expanded=!expanded;c.classList.toggle(s.expanded,expanded);onChange(expanded);};return c;}

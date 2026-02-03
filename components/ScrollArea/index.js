@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createScrollArea({height=300,width='100%',children=null}){const c=document.createElement('div');c.className=s.area;c.style.height=typeof height==='number'?height+'px':height;c.style.width=typeof width==='number'?width+'px':width;if(children)c.appendChild(children);return c;}

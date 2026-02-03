@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createDivider({orientation='horizontal',label='',variant='solid'}){const d=document.createElement('div');d.className=`${s.divider} ${s[orientation]} ${s[variant]}`;if(label){const l=document.createElement('span');l.className=s.label;l.textContent=label;d.appendChild(l);}return d;}

@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createCenter({children=null,inline=false}){const c=document.createElement('div');c.className=`${s.center} ${inline?s.inline:''}`;if(children)c.appendChild(children);return c;}

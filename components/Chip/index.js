@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createChip({label='',variant='default',closable=false,onClose=()=>{},onClick=()=>{}}){const c=document.createElement('span');c.className=`${s.chip} ${s[variant]}`;c.innerHTML=label;if(closable){const x=document.createElement('span');x.className=s.close;x.innerHTML='×';x.onclick=e=>{e.stopPropagation();onClose();};c.appendChild(x);}c.onclick=onClick;return c;}

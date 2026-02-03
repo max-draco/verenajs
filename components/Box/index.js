@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createBox({padding='md',radius='md',bg='default',children=null}){const c=document.createElement('div');c.className=`${s.box} ${s['p'+padding]} ${s['r'+radius]} ${s[bg]}`;if(children)c.appendChild(children);return c;}

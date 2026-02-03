@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createSortSelector({options=[],value='',onChange=()=>{}}){const c=document.createElement('select');c.className=s.select;options.forEach(o=>{const opt=document.createElement('option');opt.value=o.value;opt.textContent=o.label;if(o.value===value)opt.selected=true;c.appendChild(opt);});c.onchange=()=>onChange(c.value);return c;}

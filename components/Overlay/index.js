@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createOverlay({onClick=null,blur=true}){const c=document.createElement('div');c.className=`${s.overlay} ${blur?s.blur:''}`;if(onClick)c.onclick=onClick;document.body.appendChild(c);return{el:c,remove:()=>c.remove()};}

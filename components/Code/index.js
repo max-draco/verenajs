@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createCode({content='',language='',inline=false,copy=true}){const c=document.createElement(inline?'code':'pre');c.className=`${s.code} ${inline?s.inline:s.block}`;c.textContent=content;if(!inline&&copy){const btn=document.createElement('button');btn.className=s.copy;btn.textContent='Copy';btn.onclick=()=>{navigator.clipboard.writeText(content);btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy',2000);};c.appendChild(btn);}return c;}

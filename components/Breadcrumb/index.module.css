@@ -1,0 +1,1 @@
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:14px}.item{color:#a0a0a0;text-decoration:none;transition:color .2s}.item:hover{color:#f6f6f7}.active{color:#f6f6f7;pointer-events:none}.sep{color:#4a4a5e}

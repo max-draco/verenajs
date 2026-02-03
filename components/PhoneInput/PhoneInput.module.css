@@ -1,0 +1,12 @@
+.wrapper { display:flex; flex-direction:column; gap:6px; }
+.label { font-size:13px; font-weight:500; color:var(--text); }
+.row { position:relative; display:flex; }
+.countryBtn { padding:10px 12px; background:var(--surface); border:1.5px solid var(--border); border-right:none; border-radius:var(--radius-md) 0 0 var(--radius-md); color:var(--text); white-space:nowrap; }
+.phoneInput { flex:1; padding:10px 14px; background:var(--surface); border:1.5px solid var(--border); border-radius:0 var(--radius-md) var(--radius-md) 0; color:var(--text); font-size:14px; outline:none; }
+.phoneInput:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--blue-bg); }
+.dropdown { display:none; position:absolute; top:100%; left:0; width:260px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); box-shadow:var(--shadow-md); z-index:100; margin-top:4px; }
+.row.open .dropdown { display:block; }
+.search { width:100%; padding:10px 12px; background:transparent; border:none; border-bottom:1px solid var(--border); color:var(--text); outline:none; }
+.cList { max-height:200px; overflow-y:auto; }
+.cItem { display:block; width:100%; padding:8px 12px; background:none; border:none; color:var(--text); font-size:13px; text-align:left; }
+.cItem:hover { background:var(--surface-hover); }

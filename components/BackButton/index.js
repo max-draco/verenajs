@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createBackButton({label='Back',onClick=()=>{}}){const c=document.createElement('button');c.className=s.btn;c.innerHTML=`← ${label}`;c.onclick=onClick;return c;}

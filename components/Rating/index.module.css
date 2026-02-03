@@ -1,0 +1,1 @@
+.rating{display:inline-flex;gap:4px}.star{color:#2a2a4e;cursor:pointer;transition:color .2s,transform .1s}.star:hover{transform:scale(1.1)}.filled{color:#f59e0b}.sm .star{font-size:16px}.md .star{font-size:24px}.lg .star{font-size:32px}

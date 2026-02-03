@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createPriceDisplay({price=0,change=0,label='',size='md'}){const c=document.createElement('div');c.className=`${s.display} ${s[size]}`;const changeClass=change>0?s.up:change<0?s.down:s.neutral;c.innerHTML=`${label?`<span class="${s.label}">${label}</span>`:''}<span class="${s.price}">${price.toFixed(2)}¢</span><span class="${s.change} ${changeClass}">${change>0?'+':''}${change.toFixed(2)}</span>`;return c;}

@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createAspectRatio({ratio='16/9',children=null}){const c=document.createElement('div');c.className=s.container;c.style.aspectRatio=ratio;if(children)c.appendChild(children);return c;}

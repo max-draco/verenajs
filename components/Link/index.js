@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createLink({href='#',label='',external=false,variant='default',onClick=null}){const a=document.createElement('a');a.className=`${s.link} ${s[variant]}`;a.href=href;a.textContent=label;if(external){a.target='_blank';a.rel='noopener noreferrer';}if(onClick){a.onclick=e=>{e.preventDefault();onClick();};}return a;}

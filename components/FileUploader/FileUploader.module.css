@@ -1,0 +1,13 @@
+.uploader { width:100%; }
+.zone { border:2px dashed var(--border); border-radius:var(--radius-lg); padding:40px 24px; text-align:center; cursor:pointer; transition:border-color var(--transition-fast),background var(--transition-fast); }
+.zone:hover,.zone.over { border-color:var(--accent); background:var(--blue-bg); }
+.icon { color:var(--text-muted); margin-bottom:12px; }
+.txt { color:var(--text); font-size:15px; font-weight:500; margin-bottom:4px; }
+.hint { color:var(--text-muted); font-size:12px; }
+.hidden { display:none; }
+.previews { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+.previewItem { display:flex; align-items:center; gap:12px; padding:10px 14px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); }
+.fname { flex:1; font-size:14px; color:var(--text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.fsize { font-size:12px; color:var(--text-muted); }
+.rmFile { color:var(--text-muted); font-size:18px; }
+.rmFile:hover { color:var(--red); }

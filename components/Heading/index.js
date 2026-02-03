@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createHeading({level=1,content='',gradient=false}){const h=document.createElement(`h${level}`);h.className=`${s.heading} ${s[`h${level}`]} ${gradient?s.gradient:''}`;h.textContent=content;return h;}

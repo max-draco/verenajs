@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createWrap({gap='md',align='start',justify='start',children=[]}){const w=document.createElement('div');w.className=s.wrap;w.style.gap=`var(--gap-${gap})`;w.style.alignItems=align;w.style.justifyContent=justify;children.forEach(c=>w.appendChild(c));return w;}

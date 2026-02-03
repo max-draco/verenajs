@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createThemeToggle({theme='dark',onChange=()=>{}}){const c=document.createElement('button');c.className=s.toggle;c.innerHTML=theme==='dark'?'🌙':'☀️';c.onclick=()=>{theme=theme==='dark'?'light':'dark';c.innerHTML=theme==='dark'?'🌙':'☀️';onChange(theme);};return{el:c,setTheme:(t)=>{theme=t;c.innerHTML=theme==='dark'?'🌙':'☀️';}};}

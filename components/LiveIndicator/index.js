@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createLiveIndicator({label='LIVE',active=true}){const c=document.createElement('span');c.className=`${s.indicator} ${active?s.active:''}`;c.innerHTML=`<span class="${s.dot}"></span>${label}`;return c;}

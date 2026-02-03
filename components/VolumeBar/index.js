@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createVolumeBar({value=0,max=100,color='#3b82f6'}){const c=document.createElement('div');c.className=s.bar;const pct=Math.min((value/max)*100,100);c.innerHTML=`<div class="${s.fill}" style="width:${pct}%;background:${color}"></div>`;return c;}

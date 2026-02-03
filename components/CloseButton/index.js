@@ -1,0 +1,1 @@
+import s from './index.module.css';export function createCloseButton({size='md',onClick=()=>{}}){const c=document.createElement('button');c.className=`${s.btn} ${s[size]}`;c.innerHTML='×';c.onclick=onClick;return c;}

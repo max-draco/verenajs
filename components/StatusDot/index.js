@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createStatusDot({status='offline',pulse=false,size='sm'}){const d=document.createElement('span');d.className=`${s.dot} ${s[status]} ${s[size]} ${pulse?s.pulse:''}`;return d;}

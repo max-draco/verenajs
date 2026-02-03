@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createEventCard({title='',time='',location='',color='#3b82f6',onClick=()=>{}}){const c=document.createElement('div');c.className=s.card;c.style.borderLeftColor=color;c.innerHTML=`<div class="${s.time}">${time}</div><div class="${s.title}">${title}</div>${location?`<div class="${s.location}">📍 ${location}</div>`:''}`;c.onclick=onClick;return c;}

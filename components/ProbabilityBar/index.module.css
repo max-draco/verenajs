@@ -1,0 +1,1 @@
+.bar{display:flex;align-items:center;gap:12px}.track{flex:1;height:8px;display:flex;border-radius:4px;overflow:hidden}.yesFill{background:#22c55e}.noFill{background:#ef4444}.label{font-size:14px;font-weight:600;min-width:40px}.yes{color:#22c55e}.no{color:#ef4444;text-align:right}

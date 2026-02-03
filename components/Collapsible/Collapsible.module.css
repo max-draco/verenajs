@@ -1,0 +1,9 @@
+.collapsible { border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; }
+.header { width:100%; display:flex; align-items:center; padding:14px 16px; gap:10px; background:var(--surface); color:var(--text); text-align:left; transition:background var(--transition-fast); }
+.header:hover { background:var(--surface-hover); }
+.title { flex:1; font-size:14px; font-weight:500; }
+.icon { font-size:18px; color:var(--text-secondary); }
+.chevron { font-size:10px; color:var(--text-muted); transition:transform 250ms ease; }
+.open .chevron { transform:rotate(180deg); }
+.body { max-height:0; overflow:hidden; transition:max-height 350ms ease; }
+.inner { padding:16px; }

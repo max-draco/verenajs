@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createStat({label='',value='',change=null,icon='',helpText=''}){const c=document.createElement('div');c.className=s.stat;c.innerHTML=`${icon?`<div class="${s.icon}">${icon}</div>`:''}<div class="${s.content}"><div class="${s.label}">${label}</div><div class="${s.value}">${value}</div>${change!==null?`<div class="${s.change} ${change>=0?s.positive:s.negative}">${change>=0?'↑':'↓'} ${Math.abs(change)}%</div>`:''}${helpText?`<div class="${s.help}">${helpText}</div>`:''}</div>`;return c;}

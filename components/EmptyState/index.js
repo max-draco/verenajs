@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createEmptyState({icon='📭',title='No data',description='',action=null}){const c=document.createElement('div');c.className=s.empty;c.innerHTML=`<div class="${s.icon}">${icon}</div><h3 class="${s.title}">${title}</h3>${description?`<p class="${s.desc}">${description}</p>`:''}${action?`<button class="${s.action}">${action.label}</button>`:''}`;if(action)c.querySelector('.'+s.action).onclick=action.onClick;return c;}

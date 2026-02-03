@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createInfoCard({title='',items=[]}){const c=document.createElement('div');c.className=s.card;c.innerHTML=`${title?`<div class="${s.header}">${title}</div>`:''}<div class="${s.content}">${items.map(i=>`<div class="${s.row}"><span class="${s.label}">${i.label}</span><span class="${s.value}">${i.value}</span></div>`).join('')}</div>`;return c;}

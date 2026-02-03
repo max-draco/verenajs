@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createOnlineStatus({online=true,lastSeen=''}){const c=document.createElement('span');c.className=s.status;c.innerHTML=`<span class="${s.dot} ${online?s.online:s.offline}"></span><span class="${s.text}">${online?'Online':lastSeen?`Last seen ${lastSeen}`:'Offline'}</span>`;return c;}

@@ -1,0 +1,1 @@
+.bar{display:flex;gap:8px;padding:12px 16px;background:#1a1a2e;border-top:1px solid #2a2a4e}.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#2a2a4e;border:none;border-radius:8px;color:#a0a0a0;font-size:13px;cursor:pointer}.btn:hover{background:#3a3a5e;color:#f6f6f7}.primary{background:#3b82f6;color:#fff}.primary:hover{background:#2563eb}

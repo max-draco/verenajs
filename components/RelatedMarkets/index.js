@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createRelatedMarkets({markets=[],onClick=()=>{}}){const c=document.createElement('div');c.className=s.related;c.innerHTML=`<div class="${s.header}">Related Markets</div><div class="${s.list}">${markets.map(m=>`<div class="${s.item}" data-id="${m.id}"><div class="${s.title}">${m.title}</div><div class="${s.price}">${m.price}¢</div></div>`).join('')}</div>`;c.querySelectorAll('.'+s.item).forEach(el=>el.onclick=()=>onClick(el.dataset.id));return c;}

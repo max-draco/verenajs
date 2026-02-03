@@ -1,0 +1,1 @@
+export function createPortal({target=document.body}={target:document.body}){const container=document.createElement('div');container.style.position='contents';target.appendChild(container);return{mount:(el)=>{container.appendChild(el);},unmount:()=>{container.innerHTML='';},destroy:()=>{container.remove();},getContainer:()=>container};}

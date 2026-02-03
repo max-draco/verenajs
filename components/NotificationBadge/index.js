@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createNotificationBadge({count=0,max=99}){const c=document.createElement('span');c.className=s.badge;c.textContent=count>max?`${max}+`:count;if(count===0)c.style.display='none';return{el:c,setCount:(n)=>{c.textContent=n>max?`${max}+`:n;c.style.display=n===0?'none':'flex';}};}

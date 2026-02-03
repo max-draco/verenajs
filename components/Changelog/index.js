@@ -1,0 +1,2 @@
+import s from './index.module.css';
+export function createChangelog({entries=[]}){const c=document.createElement('div');c.className=s.changelog;entries.forEach(entry=>{const el=document.createElement('div');el.className=s.entry;el.innerHTML=`<div class="${s.header}"><span class="${s.version}">${entry.version}</span><span class="${s.date}">${entry.date}</span></div><ul class="${s.changes}">${entry.changes.map(ch=>`<li class="${s.change} ${s[ch.type]||''}">${ch.text}</li>`).join('')}</ul>`;c.appendChild(el);});return c;}

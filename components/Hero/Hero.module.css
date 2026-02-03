@@ -1,0 +1,11 @@
+.hero { position:relative; display:flex; align-items:center; width:100%; overflow:hidden; background:var(--hero-bg,var(--bg)); }
+.overlay { position:absolute; inset:0; background:linear-gradient(135deg,rgba(11,11,12,0.7),rgba(11,11,12,0.4)); }
+.content { position:relative; z-index:1; width:100%; max-width:760px; padding:0 32px; }
+.center { text-align:center; margin:0 auto; }
+.left { text-align:left; }
+.right { text-align:right; margin-left:auto; }
+.title { font-size:clamp(28px,5vw,52px); font-weight:700; color:var(--text); line-height:1.15; margin-bottom:16px; }
+.subtitle { font-size:clamp(16px,2vw,20px); color:var(--text-secondary); margin-bottom:32px; max-width:560px; }
+.center .subtitle { margin-left:auto; margin-right:auto; }
+.cta { padding:14px 32px; background:var(--accent); color:var(--accent-text); border-radius:var(--radius-lg); font-size:16px; font-weight:600; transition:background var(--transition-fast),transform var(--transition-fast); }
+.cta:hover { background:var(--accent-hover); transform:scale(1.03); }
