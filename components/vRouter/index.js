@@ -1,232 +1,264 @@
-// Updated Router Class with Enhanced Header and Routing Features
-import styles from '../styler/index.module.css';
+// Enhanced Router — Guards · Lazy Loading · History · Query Params
 class Router {
-    constructor({ defaultRoute = 'home', rootSelector = '#app', headerConfig = {} }) {
+    constructor({
+        defaultRoute = 'home',
+        rootSelector = '#app',
+        headerConfig = {},
+        mode = 'hash',
+        guards = {}
+    }) {
         this.routes = {};
         this.previousRoute = null;
         this.defaultRoute = defaultRoute;
         this.rootElement = document.querySelector(rootSelector);
-        this.headerConfig = headerConfig; // Store header configuration
+        this.headerConfig = headerConfig;
+        this.mode = mode;
+
+        this.history = [];
+        this.maxHistorySize = 50;
+        this.currentHistoryIndex = -1;
+
+        this.beforeEachGuards = [];
+        this.afterEachGuards = [];
+
+        this.currentRoute = null;
+        this.routeState = {};
+        this.lazyLoadedModules = new Map();
 
         this.setupDOM();
-        this.setupStyles();
         this.contentElement = document.getElementById('content');
-        this.backButton = document.getElementById('backButton');
-        this.headerTitle = document.getElementById('headerTitle');
 
         this.setupEventListeners();
 
         window.addEventListener('DOMContentLoaded', () => {
-            const initialRoute = window.location.hash.slice(1) || this.defaultRoute;
-            this.loadRoute(initialRoute); // Load the route on initial load
+            const initialRoute = this.getRouteFromURL() || this.defaultRoute;
+            this.loadRoute(initialRoute);
         });
     }
 
+    getRouteFromURL() {
+        if (this.mode === 'hash') {
+            return window.location.hash.slice(1).split('?')[0];
+        }
+        return window.location.pathname.slice(1);
+    }
+
+    getQueryParams() {
+        const params = {};
+        const queryString = window.location.search.slice(1);
+        if (!queryString) return params;
+        queryString.split('&').forEach(param => {
+            const [key, value] = param.split('=');
+            params[decodeURIComponent(key)] = decodeURIComponent(value || '');
+        });
+        return params;
+    }
+
+    beforeEach(guard) {
+        if (typeof guard === 'function') this.beforeEachGuards.push(guard);
+    }
+
+    afterEach(guard) {
+        if (typeof guard === 'function') this.afterEachGuards.push(guard);
+    }
+
+    addToHistory(route, state = {}) {
+        if (this.currentHistoryIndex < this.history.length - 1) {
+            this.history = this.history.slice(0, this.currentHistoryIndex + 1);
+        }
+        this.history.push({ route, state, timestamp: Date.now() });
+        if (this.history.length > this.maxHistorySize) {
+            this.history.shift();
+        } else {
+            this.currentHistoryIndex++;
+        }
+    }
+
+    getHistory() { return [...this.history]; }
+    clearHistory() { this.history = []; this.currentHistoryIndex = -1; }
+
     setupDOM() {
-        const htmlStructure = `
-        <header class="app-header">
-            <div id="headerTitle" class="header-title">
-                <h1>${this.headerConfig.title || ''}</h1>
-            </div>
-            <button id="backButton" class="back-button" disabled>⬅</button>
-            <button id="styler">Styler</button>
-        </header>
-        <main id="content" class="content-area"></main>
-    `;
- 
-    this.rootElement.innerHTML = htmlStructure;
-    
-    // Safety checks and enhanced functionality
-    const headerElement = document.querySelector('.app-header');
-    const headerTitleElement = document.querySelector('#headerTitle');
-    
-    if (this.headerConfig.hideHeader) {
-        if (headerElement) {
-            headerElement.style.display = 'none';
-        } else {
-            console.warn('Header element not found in the DOM.');
-        }
-    }
-    
-    if (headerTitleElement && this.headerConfig.title) {
-        const titleElement = headerTitleElement.querySelector('h1');
-        if (titleElement) {
-            titleElement.textContent = this.headerConfig.title;
-        } else {
-            console.warn('Title element not found in the DOM.');
-        }
-    } else if (!headerTitleElement) {
-        console.warn('Header title container not found in the DOM.');
-    }
-    }
-
-    setupStyles() {
-        const style = document.createElement('style');
-        style.textContent = `
-            body {
-                margin: 0;
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-                color: #333;
-                overflow: hidden;
-            }
-            .app-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                background-color: #282c34;
-                color: white;
-                padding: 1rem;
-                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            }
-
-            .header-title h1 {
-                margin: 0;
-                font-size: 1.5rem;
-                text-align: center;
-                flex-grow: 1;
-            }
-
-            .back-button {
-                background-color: transparent;
-                border: none;
-                padding: 0.5rem 1rem;
-                border-radius: 5px;
-                color: #282c34;
-                cursor: pointer;
-                font-size: 1rem;
-                transition: background-color 0.3s ease;
-                opacity: 0.7;
-            }
-
-            .back-button:hover {
-                background-color: transparent;
-                opacity: 1;
-            }
-
-            .back-button:disabled {
-                background-color: transparent;
-                cursor: not-allowed;
-                opacity: 0.5;
-            }
-
-            .content-area {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding: 0rem;
-                min-height: calc(100vh - 64px);
-                background-color: #ffffff;
-                border-radius: 0px;
-                margin: 0rem;
-            }
-
-            .view {
-                text-align: center;
-            }
-
-            button {
-                margin-top: 1rem;
-                background-color: #282c34;
-                color: white;
-                border: none;
-                padding: 0.5rem 1rem;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
-
-            button:hover {
-                background-color: rgb(215, 215, 215);
-            }
-        `;
-        document.head.appendChild(style);
+        this.rootElement.innerHTML = `<main id="content" style="width:100%;min-height:100vh;background:var(--bg,#0b0b0c);"></main>`;
     }
 
     setupEventListeners() {
-        if (this.backButton) {
-            this.backButton.addEventListener('click', () => this.navigateBack());
+        if (this.mode === 'hash') {
+            window.addEventListener('hashchange', () => {
+                const route = window.location.hash.slice(1).split('?')[0];
+                this.loadRoute(route, this.getState(route));
+            });
+        } else {
+            window.addEventListener('popstate', (event) => {
+                const route = window.location.pathname.slice(1);
+                this.loadRoute(route, event.state || {});
+            });
         }
-
-        window.addEventListener('hashchange', () => {
-            const route = window.location.hash.slice(1);
-            this.loadRoute(route); // Load the route based on the updated hash
-        });
-           const styler = document.getElementById('styler');
-    styler.addEventListener('click',()=>{
-     document.body.classList.add(styles.bodyFilter);
-    });
     }
 
-    addRoute(route, { content, onLoad = null, headerConfig = {} }) {
-        // Ensure that the content is a DOM element
-        if (!(content instanceof HTMLElement)) {
-            console.error("Content must be a DOM element.");
+    /**
+     * @param {string} route
+     * @param {Object} options
+     * @param {HTMLElement} [options.content]
+     * @param {Function} [options.lazy]
+     * @param {Function} [options.onLoad]
+     * @param {Object} [options.headerConfig]
+     * @param {Function} [options.beforeEnter]
+     */
+    addRoute(route, options = {}) {
+        const { content, lazy, onLoad = null, headerConfig = {}, beforeEnter = null } = options;
+        if (!content && !lazy) {
+            console.error(`Route "${route}" needs content or lazy.`);
             return;
         }
-
-        this.routes[route] = { content, onLoad, headerConfig };
+        if (content && !(content instanceof HTMLElement)) {
+            console.error(`Content for route "${route}" must be an HTMLElement.`);
+            return;
+        }
+        this.routes[route] = { content, lazy, onLoad, headerConfig, beforeEnter, isLazy: !!lazy };
     }
 
-    loadRoute(route) {
+    async loadRoute(route, state = {}) {
         const routeData = this.routes[route];
+        if (!routeData) { this.show404(route); return; }
 
-        if (routeData) {
-            // Clear existing content
+        const from = this.currentRoute;
+        const to = route;
+        const queryParams = this.getQueryParams();
+        const ctx = { to, from, state, query: queryParams, abort: false };
+
+        for (const guard of this.beforeEachGuards) {
+            await this.runGuard(guard, ctx);
+            if (ctx.abort) return;
+        }
+
+        if (routeData.beforeEnter) {
+            await this.runGuard(routeData.beforeEnter, ctx);
+            if (ctx.abort) return;
+        }
+
+        this.routeState[route] = state;
+
+        try {
+            let content = routeData.content;
+            if (routeData.isLazy && !content) {
+                content = await this.lazyLoadRoute(route, routeData);
+            }
+            if (!content) throw new Error(`No content for "${route}"`);
+
             this.contentElement.innerHTML = '';
-            // Append the new content element
-            this.contentElement.appendChild(routeData.content);
+            this.contentElement.appendChild(content);
+            this.currentRoute = route;
 
-            if (routeData.onLoad) {
-                routeData.onLoad();
+            if (routeData.onLoad) routeData.onLoad(content, { state, query: queryParams });
+
+            this.addToHistory(route, state);
+            this.previousRoute = from;
+
+            for (const guard of this.afterEachGuards) {
+                await this.runGuard(guard, { to, from, state, query: queryParams });
             }
-
-            // Update header based on route configuration
-            const { headerConfig } = routeData;
-            if (headerConfig) {
-                this.updateHeader(headerConfig);
-            }
-
-            this.updateBackButtonState();
-            this.previousRoute = route;
-        } else {
-            this.contentElement.innerHTML = `
-                <div class="view">
-                    <h2>404 - Not Found</h2>
-                    <p>Route does not exist.</p>
-                </div>`;
+        } catch (error) {
+            console.error(`Error loading "${route}":`, error);
+            this.showError(route, error);
         }
     }
 
-    navigateTo(route) {
-        window.location.hash = route;
+    async runGuard(guard, context) {
+        return new Promise((resolve) => {
+            const next = (shouldAbort = false) => { context.abort = !!shouldAbort; resolve(); };
+            const result = guard(context.to, context.from, next, context);
+            if (result instanceof Promise) {
+                result.then(() => resolve()).catch(() => { context.abort = true; resolve(); });
+            } else if (result !== undefined) {
+                context.abort = !result;
+                resolve();
+            }
+        });
+    }
+
+    async lazyLoadRoute(route, routeData) {
+        if (this.lazyLoadedModules.has(route)) return this.lazyLoadedModules.get(route);
+        const module = await routeData.lazy();
+        let content = module.default || module.content;
+        if (typeof content === 'function') content = content(this.contentElement);
+        if (!content) throw new Error(`Lazy module for "${route}" must export default or content`);
+        this.lazyLoadedModules.set(route, content);
+        routeData.content = content;
+        return content;
+    }
+
+    show404(route) {
+        this.contentElement.innerHTML = `
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;gap:16px;">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size:48px;color:#f59e0b;"></i>
+                <h2 style="margin:0;color:#f6f6f7;">404 — Not Found</h2>
+                <p style="color:#717179;margin:0;">Route "${route}" does not exist.</p>
+                <button onclick="window.location.hash='${this.defaultRoute}'" style="margin-top:8px;padding:10px 24px;background:#60a5fa;color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:600;">Go Home</button>
+            </div>`;
+    }
+
+    showError(route, error) {
+        this.contentElement.innerHTML = `
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;gap:16px;">
+                <i class="fa-solid fa-circle-exclamation" style="font-size:48px;color:#ef4444;"></i>
+                <h2 style="margin:0;color:#f6f6f7;">Error Loading Route</h2>
+                <p style="color:#717179;margin:0;">${error.message}</p>
+                <button onclick="location.reload()" style="margin-top:8px;padding:10px 24px;background:#60a5fa;color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:600;">Reload</button>
+            </div>`;
+    }
+
+    navigateTo(route, state = {}, query = {}) {
+        const qs = Object.keys(query).length
+            ? '?' + Object.entries(query).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&')
+            : '';
+        if (this.mode === 'hash') {
+            window.location.hash = route + qs;
+        } else {
+            window.history.pushState(state, '', `/${route}${qs}`);
+            this.loadRoute(route, state);
+        }
+    }
+
+    replace(route, state = {}, query = {}) {
+        const qs = Object.keys(query).length
+            ? '?' + Object.entries(query).map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`).join('&')
+            : '';
+        if (this.mode === 'hash') {
+            window.location.replace(`#${route}${qs}`);
+        } else {
+            window.history.replaceState(state, '', `/${route}${qs}`);
+            this.loadRoute(route, state);
+        }
     }
 
     navigateBack() {
-        if (this.previousRoute) {
-            const backRoute = this.routes[this.previousRoute] ? this.previousRoute : this.defaultRoute;
-            this.navigateTo(backRoute);
-        }
-    }
-
-    updateBackButtonState() {
-        this.backButton.disabled = window.location.hash.slice(1) === this.defaultRoute;
-    }
-
-    updateHeader({ hideHeader, title }) {
-        const headerElement = document.querySelector('.app-header');
-        if (hideHeader) {
-            headerElement.style.display = 'none';
+        if (this.currentHistoryIndex > 0) {
+            this.currentHistoryIndex--;
+            const item = this.history[this.currentHistoryIndex];
+            this.navigateTo(item.route, item.state);
         } else {
-            headerElement.style.display = 'flex';
+            window.history.back();
         }
+    }
 
-        if (title) {
-            this.headerTitle.querySelector('h1').textContent = title;
+    navigateForward() {
+        if (this.currentHistoryIndex < this.history.length - 1) {
+            this.currentHistoryIndex++;
+            const item = this.history[this.currentHistoryIndex];
+            this.navigateTo(item.route, item.state);
+        } else {
+            window.history.forward();
         }
+    }
+
+    getState(route = null) {
+        return this.routeState[route || this.currentRoute] || {};
+    }
+
+    setState(state, route = null) {
+        const r = route || this.currentRoute;
+        this.routeState[r] = { ...this.routeState[r], ...state };
     }
 }
 
-// Export the Router class
 export default Router;

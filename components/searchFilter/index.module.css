@@ -1,0 +1,135 @@
+/* Search Filter Component */
+.searchFilter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Search Input */
+.searchWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--surface, #121215);
+  border: 1px solid var(--border, #1b1d24);
+  border-radius: 12px;
+  padding: 0 16px;
+  transition: all 0.2s ease;
+}
+
+.searchWrap:focus-within {
+  border-color: var(--accent, #60a5fa);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+}
+
+.icon {
+  color: var(--muted, #717179);
+  font-size: 14px;
+  margin-right: 12px;
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 14px 0;
+  font-size: 15px;
+  color: var(--text, #f6f6f7);
+  font-family: inherit;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--muted, #717179);
+}
+
+.clearBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  color: var(--muted, #717179);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.15s ease;
+  padding: 0;
+  margin-left: 8px;
+}
+
+.clearBtn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text, #f6f6f7);
+}
+
+/* Filter Pills */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--surface, #121215);
+  border: 1px solid var(--border, #1b1d24);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted, #717179);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.pill:hover {
+  background: var(--surface2, #0f1116);
+  border-color: var(--accent, #60a5fa);
+  color: var(--text, #f6f6f7);
+}
+
+.pill.active {
+  background: var(--accent, #60a5fa);
+  border-color: var(--accent, #60a5fa);
+  color: white;
+}
+
+.pillIcon {
+  font-size: 12px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .searchFilter {
+    gap: 12px;
+  }
+
+  .searchInput {
+    font-size: 14px;
+    padding: 12px 0;
+  }
+
+  .filters {
+    gap: 8px;
+    padding-bottom: 4px;
+  }
+
+  .pill {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+}
