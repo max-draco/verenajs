@@ -8,7 +8,7 @@ Common questions about verenajs.
 
 ### What is verenajs?
 
-verenajs is a vanilla JavaScript framework for building web, mobile, and desktop applications from a single codebase. It provides 257 production-ready UI components, a visual builder, and multi-platform compilation.
+verenajs is a vanilla JavaScript framework for building web, mobile, and desktop applications from a single codebase. It provides 1000+ production-ready UI components, a professional Visual Builder, and multi-platform compilation.
 
 ### How is verenajs different from React/Vue?
 
@@ -20,10 +20,12 @@ verenajs is a vanilla JavaScript framework for building web, mobile, and desktop
 | Bundle size | Small | Larger |
 | Native DOM | Yes | No |
 | Multi-platform | Built-in | Requires extras |
+| Visual Builder | Built-in | Third-party |
+| Components | 1000+ | Varies |
 
 ### Is verenajs production-ready?
 
-Yes. verenajs 2.0 includes 257 battle-tested components and is suitable for production use. The framework is actively maintained.
+Yes. verenajs 2.0 includes 1000+ battle-tested components and is suitable for production use. The framework is actively maintained with regular updates.
 
 ### What browsers are supported?
 
@@ -56,11 +58,22 @@ Or via CDN:
 
 ### Do I need a build tool?
 
-For development, you can use verenajs directly in the browser with ES modules. For production, we recommend using a bundler like Webpack or Vite.
+For development, you can use verenajs directly in the browser with ES modules. For production, we recommend using a bundler like Webpack or Vite for optimization.
 
 ---
 
 ## Components
+
+### How many components are included?
+
+verenajs includes 1000+ production-ready components across 40+ categories:
+
+- Layout: Container, Grid, Masonry, Splitter, etc.
+- Forms: Input, Select, DatePicker, FileUploader, etc.
+- Data: DataTable, TreeView, Kanban, Timeline, etc.
+- Charts: Line, Bar, Pie, Candlestick, Heatmap, etc.
+- Trading: OrderBook, MarketChart, TradeHistory, etc.
+- And many more...
 
 ### How do I create a component?
 
@@ -110,6 +123,10 @@ export function createMyComponent({ label, onClick }) {
 
 ## Visual Builder
 
+### What is the Visual Builder?
+
+The Visual Builder is a professional drag-and-drop interface for building applications without writing code. It's similar to WordPress Elementor or Webflow, but specifically designed for verenajs applications.
+
 ### How do I open the Visual Builder?
 
 ```javascript
@@ -117,7 +134,24 @@ import { toggleBuilder } from 'verenajs/builder';
 
 // Press Ctrl+B or:
 toggleBuilder();
+
+// Or use the advanced builder
+import { createAdvancedBuilder } from 'verenajs/builder';
+const builder = createAdvancedBuilder();
+document.body.appendChild(builder);
 ```
+
+### What features does the Visual Builder have?
+
+- Drag-and-drop component palette (1000+ components)
+- Device preview (Desktop, Tablet, Mobile)
+- Property inspector (styles, events, data bindings)
+- Layers tree (component hierarchy)
+- Multi-page support
+- Undo/redo history (100 steps)
+- Code export (verenajs, React, Vue, HTML)
+- Docker deployment dialog
+- Keyboard shortcuts
 
 ### Can I export code from the Visual Builder?
 
@@ -125,12 +159,84 @@ Yes! Click the Export button or use:
 
 ```javascript
 import { generateCode, builderState } from 'verenajs/builder';
-const code = generateCode(builderState.componentTree);
+
+// Export to verenajs
+const verenajsCode = generateCode(builderState.componentTree, 'verenajs');
+
+// Export to React
+const reactCode = generateCode(builderState.componentTree, 'react');
+
+// Export to Vue
+const vueCode = generateCode(builderState.componentTree, 'vue');
+
+// Export to HTML
+const htmlCode = generateCode(builderState.componentTree, 'html');
 ```
 
 ### Is the Visual Builder included in production builds?
 
 The Visual Builder is in a separate module (`verenajs/builder`) and is tree-shaken out if not imported.
+
+### Can I deploy directly from the Visual Builder?
+
+Yes! The Visual Builder includes deployment options:
+- Docker (generates Dockerfile)
+- Kubernetes (generates K8s manifests)
+- Download source code
+
+---
+
+## API Management
+
+### Does verenajs include API management?
+
+Yes! verenajs includes a comprehensive API management system:
+
+```javascript
+import { ApiClient, WebhookManager, BackendConnector } from 'verenajs/core/api-manager';
+
+// API Client with caching and retries
+const api = new ApiClient({
+  baseUrl: 'https://api.example.com',
+  cache: { ttl: 300000 },
+  retry: { maxRetries: 3 }
+});
+
+// Webhook management with HMAC signatures
+const webhooks = new WebhookManager({ secret: 'your-secret' });
+
+// Backend connections (Node.js, Python, Go, PHP)
+const backend = new BackendConnector();
+await backend.connect('python', { host: 'localhost', port: 5000 });
+```
+
+---
+
+## Plugin System
+
+### What plugins are available?
+
+Built-in plugins include:
+- **analytics**: Event tracking and user analytics
+- **auth**: Authentication (email, OAuth)
+- **payments**: Payment processing (Stripe)
+- **email**: Email sending
+- **charts**: Advanced charting
+- **maps**: Map integrations
+
+### How do I use plugins?
+
+```javascript
+import { PluginManager } from 'verenajs/core/plugin-manager';
+
+const plugins = new PluginManager();
+
+await plugins.install('analytics');
+await plugins.activate('analytics');
+
+const analytics = plugins.getApi('analytics');
+analytics.track('page_view', { page: '/home' });
+```
 
 ---
 
@@ -164,6 +270,40 @@ const file = await QtDialogs.openFile();
 // Capacitor (mobile)
 import { Camera } from '@capacitor/camera';
 const photo = await Camera.getPhoto();
+```
+
+---
+
+## Docker & Deployment
+
+### Does verenajs support Docker?
+
+Yes! verenajs includes Docker integration:
+
+```javascript
+import { DockerfileGenerator, DockerComposeGenerator } from 'verenajs/core/docker-integration';
+
+const dockerfile = new DockerfileGenerator();
+const dockerfileContent = dockerfile.generate({
+  type: 'verenajs',
+  nodeVersion: '20',
+  port: 3000
+});
+```
+
+### Can I generate Kubernetes manifests?
+
+Yes!
+
+```javascript
+import { KubernetesGenerator } from 'verenajs/core/docker-integration';
+
+const k8s = new KubernetesGenerator();
+const manifests = k8s.generate({
+  name: 'my-app',
+  replicas: 3,
+  port: 3000
+});
 ```
 
 ---
@@ -231,6 +371,15 @@ TypeScript definitions are coming in v2.1. For now:
 import { createButton } from 'verenajs';
 ```
 
+### Visual Builder not appearing
+
+Make sure you're appending the builder to the DOM:
+
+```javascript
+import { createAdvancedBuilder } from 'verenajs/builder';
+document.body.appendChild(createAdvancedBuilder());
+```
+
 ---
 
 ## Contributing
@@ -254,3 +403,4 @@ verenajs is maintained by Muslih Ali and the open-source community.
 - Check the [Documentation](USAGE.md)
 - Open an [Issue](https://github.com/muslihabdiker/vplusplus/issues)
 - Read the [Examples](EXAMPLES.md)
+- Explore the [Visual Builder](docs/VISUAL-BUILDER.md) guide

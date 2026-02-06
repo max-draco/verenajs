@@ -143,6 +143,102 @@ import { createOrderRow } from './components/OrderRow/index.js';
 import { createMarketChart } from './components/MarketChart/index.js';
 import { createMarketMini } from './components/MarketMini/index.js';
 
+// ============================================================================
+// NEW PRODUCTION-READY COMPONENT MODULES (v2.0.0)
+// ============================================================================
+
+// Charts & Data Visualization
+import Charts, {
+  createLineChart,
+  createBarChart,
+  createPieChart,
+  createAreaChart,
+  createCandlestickChart,
+  createGaugeChart,
+  createRadarChart,
+  createHeatmap,
+  createSparkline,
+  createProgressRing
+} from './components/charts/index.js';
+
+// AI & Chatbot Components
+import AI, {
+  createChatMessage,
+  createChatInput,
+  createChatContainer,
+  createPromptBuilder,
+  createAICompletion,
+  createStreamingResponse
+} from './components/ai/index.js';
+
+// Communication Components
+import Communication, {
+  createVideoCall,
+  createNotificationCenter,
+  createToastContainer,
+  createPresenceIndicator,
+  createTypingIndicator
+} from './components/communication/index.js';
+
+// E-Commerce Components
+import Ecommerce, {
+  createProductCard,
+  createShoppingCart,
+  createCheckoutForm,
+  createPriceDisplay,
+  createQuantitySelector
+} from './components/ecommerce/index.js';
+
+// Media Components
+import Media, {
+  createVideoPlayer,
+  createAudioPlayer,
+  createImageGallery,
+  createImageCropper
+} from './components/media/index.js';
+
+// Advanced Form Components
+import AdvancedForms, {
+  createRichTextEditor,
+  createColorPicker as createAdvancedColorPicker,
+  createDatePicker as createAdvancedDatePicker,
+  createTimePicker,
+  createTagsInput,
+  createSlider as createAdvancedSlider
+} from './components/forms/advanced.js';
+
+// Real-time Components
+import Realtime, {
+  wsManager,
+  createLiveIndicator,
+  createConnectionStatus,
+  createLiveCounter,
+  createLiveClock,
+  createActivityFeed,
+  createMetricCard,
+  createMetricGrid
+} from './components/realtime/index.js';
+
+// Production Trading Components
+import Trading, {
+  createOrderBook as createAdvancedOrderBook,
+  createTradeHistory as createAdvancedTradeHistory,
+  createPriceTicker,
+  createOrderForm as createAdvancedOrderForm,
+  createPortfolio,
+  createWatchlist
+} from './components/trading/index.js';
+
+// Validation System
+import Validation, {
+  ValidationEngine,
+  createFormValidator,
+  createReactiveValidator,
+  validator,
+  PATTERNS,
+  MESSAGES
+} from './core/validation.js';
+
 // Component namespace for dot-notation access
 const components = {
   // Core
@@ -245,7 +341,85 @@ const components = {
   PositionCard: createPositionCard,
   OrderRow: createOrderRow,
   MarketChart: createMarketChart,
-  MarketMini: createMarketMini
+  MarketMini: createMarketMini,
+
+  // Charts & Data Visualization
+  LineChart: createLineChart,
+  BarChart: createBarChart,
+  PieChart: createPieChart,
+  AreaChart: createAreaChart,
+  CandlestickChart: createCandlestickChart,
+  GaugeChart: createGaugeChart,
+  RadarChart: createRadarChart,
+  Heatmap: createHeatmap,
+  Sparkline: createSparkline,
+  ProgressRing: createProgressRing,
+
+  // AI & Chatbot
+  ChatMessage: createChatMessage,
+  ChatInput: createChatInput,
+  ChatContainer: createChatContainer,
+  PromptBuilder: createPromptBuilder,
+  AICompletion: createAICompletion,
+  StreamingResponse: createStreamingResponse,
+
+  // Communication
+  VideoCall: createVideoCall,
+  NotificationCenter: createNotificationCenter,
+  ToastContainer: createToastContainer,
+  PresenceIndicator: createPresenceIndicator,
+  TypingIndicator: createTypingIndicator,
+
+  // E-Commerce
+  ProductCard: createProductCard,
+  ShoppingCart: createShoppingCart,
+  CheckoutForm: createCheckoutForm,
+  PriceDisplay: createPriceDisplay,
+  QuantitySelector: createQuantitySelector,
+
+  // Media
+  VideoPlayer: createVideoPlayer,
+  AudioPlayer: createAudioPlayer,
+  ImageGallery: createImageGallery,
+  ImageCropper: createImageCropper,
+
+  // Advanced Forms
+  RichTextEditor: createRichTextEditor,
+  AdvancedColorPicker: createAdvancedColorPicker,
+  AdvancedDatePicker: createAdvancedDatePicker,
+  TimePicker: createTimePicker,
+  TagsInput: createTagsInput,
+  AdvancedSlider: createAdvancedSlider,
+
+  // Real-time
+  LiveIndicator: createLiveIndicator,
+  ConnectionStatus: createConnectionStatus,
+  LiveCounter: createLiveCounter,
+  LiveClock: createLiveClock,
+  ActivityFeed: createActivityFeed,
+  MetricCard: createMetricCard,
+  MetricGrid: createMetricGrid,
+
+  // Advanced Trading
+  AdvancedOrderBook: createAdvancedOrderBook,
+  AdvancedTradeHistory: createAdvancedTradeHistory,
+  PriceTicker: createPriceTicker,
+  AdvancedOrderForm: createAdvancedOrderForm,
+  Portfolio: createPortfolio,
+  Watchlist: createWatchlist
+};
+
+// Module namespaces for organized access
+const modules = {
+  Charts,
+  AI,
+  Communication,
+  Ecommerce,
+  Media,
+  AdvancedForms,
+  Realtime,
+  Trading,
+  Validation
 };
 
 // verenajs namespace object
@@ -270,6 +444,7 @@ const verenajs = {
 
   // Component system
   components,
+  modules,
   register: registerComponent,
   get: getComponent,
   has: hasComponent,
@@ -287,7 +462,18 @@ const verenajs = {
   use: usePlugin,
 
   // Router
-  Router
+  Router,
+
+  // Validation
+  ValidationEngine,
+  createFormValidator,
+  createReactiveValidator,
+  validator,
+  PATTERNS,
+  MESSAGES,
+
+  // WebSocket Manager
+  wsManager
 };
 
 // Named exports for tree-shaking
@@ -423,7 +609,93 @@ export {
   createPositionCard,
   createOrderRow,
   createMarketChart,
-  createMarketMini
+  createMarketMini,
+
+  // Charts & Data Visualization
+  Charts,
+  createLineChart,
+  createBarChart,
+  createPieChart,
+  createAreaChart,
+  createCandlestickChart,
+  createGaugeChart,
+  createRadarChart,
+  createHeatmap,
+  createSparkline,
+  createProgressRing,
+
+  // AI & Chatbot
+  AI,
+  createChatMessage,
+  createChatInput,
+  createChatContainer,
+  createPromptBuilder,
+  createAICompletion,
+  createStreamingResponse,
+
+  // Communication
+  Communication,
+  createVideoCall,
+  createNotificationCenter,
+  createToastContainer,
+  createPresenceIndicator,
+  createTypingIndicator,
+
+  // E-Commerce
+  Ecommerce,
+  createProductCard,
+  createShoppingCart,
+  createCheckoutForm,
+  createPriceDisplay,
+  createQuantitySelector,
+
+  // Media
+  Media,
+  createVideoPlayer,
+  createAudioPlayer,
+  createImageGallery,
+  createImageCropper,
+
+  // Advanced Forms
+  AdvancedForms,
+  createRichTextEditor,
+  createAdvancedColorPicker,
+  createAdvancedDatePicker,
+  createTimePicker,
+  createTagsInput,
+  createAdvancedSlider,
+
+  // Real-time
+  Realtime,
+  wsManager,
+  createLiveIndicator,
+  createConnectionStatus,
+  createLiveCounter,
+  createLiveClock,
+  createActivityFeed,
+  createMetricCard,
+  createMetricGrid,
+
+  // Advanced Trading
+  Trading,
+  createAdvancedOrderBook,
+  createAdvancedTradeHistory,
+  createPriceTicker,
+  createAdvancedOrderForm,
+  createPortfolio,
+  createWatchlist,
+
+  // Validation
+  Validation,
+  ValidationEngine,
+  createFormValidator,
+  createReactiveValidator,
+  validator,
+  PATTERNS,
+  MESSAGES,
+
+  // Module namespaces
+  modules
 };
 
 // Default export

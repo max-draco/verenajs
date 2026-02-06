@@ -1,6 +1,6 @@
 // Import zustand
 import styles from './index.module.css';
-import create from "zustand";
+import { create } from "zustand";
 // Define the store using zustand
 const useProfileStore = create((set) => ({
     profileName: "My Profile",

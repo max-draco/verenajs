@@ -23,9 +23,9 @@
 <p align="center">
   <a href="#installation">Installation</a> •
   <a href="#quick-start">Quick Start</a> •
+  <a href="#visual-builder">Visual Builder</a> •
   <a href="#features">Features</a> •
-  <a href="#documentation">Documentation</a> •
-  <a href="#contributing">Contributing</a>
+  <a href="#documentation">Documentation</a>
 </p>
 
 ---
@@ -34,7 +34,7 @@
 
 verenajs is a **complete application framework** that compiles to **Web**, **Mobile**, and **Desktop** from a single codebase. Built on vanilla JavaScript with zero framework overhead.
 
-Think **Qt + Svelte + WordPress** — not React.
+Think **Qt + Svelte + WordPress Builder** — not React.
 
 ```javascript
 import { createButton, createCard, Router } from 'verenajs';
@@ -165,58 +165,190 @@ npx serve .
 
 ---
 
+## Visual Builder
+
+verenajs includes a professional-grade Visual Builder that rivals WordPress Elementor and Webflow. Build complete applications without writing code.
+
+### Launch the Visual Builder
+
+```javascript
+import { createAdvancedBuilder, toggleBuilder } from 'verenajs/builder';
+
+// Toggle with keyboard shortcut
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.key === 'b') {
+    toggleBuilder();
+  }
+});
+
+// Or launch programmatically
+const builder = createAdvancedBuilder();
+document.body.appendChild(builder);
+```
+
+### Visual Builder Features
+
+#### Component Palette (1000+ Components)
+- **40+ Categories**: Layout, Forms, Data, Charts, Trading, Real-time, AI, DevOps, and more
+- **Drag & Drop**: Simply drag components onto your canvas
+- **Search & Filter**: Find components instantly with smart search
+- **Favorites**: Pin your most-used components
+
+#### Canvas & Device Preview
+- **Multi-Device Preview**: Desktop, Tablet, Mobile views
+- **Responsive Design**: See how your layout adapts to different screens
+- **Zoom Controls**: Zoom in/out for detailed work
+- **Grid & Guide Overlays**: Pixel-perfect alignment
+
+#### Layers Panel
+- **Visual Tree View**: See your component hierarchy
+- **Drag to Reorder**: Restructure your layout visually
+- **Visibility Toggle**: Show/hide components
+- **Lock/Unlock**: Prevent accidental changes
+
+#### Properties Editor
+- **Style Tab**: Colors, typography, spacing, borders, shadows
+- **Layout Tab**: Flexbox, Grid, positioning
+- **Events Tab**: Click handlers, hover effects, custom events
+- **Data Tab**: Bind to APIs, databases, state
+
+#### Advanced Features
+- **Undo/Redo History**: Full history with 100 steps
+- **Copy/Paste**: Duplicate components across pages
+- **Templates**: Save and reuse component groups
+- **Code Export**: Generate clean JavaScript, React, or Vue code
+
+### Export Options
+
+```javascript
+import { builderState, generateCode } from 'verenajs/builder';
+
+// Export to verenajs code
+const verenajsCode = generateCode(builderState.componentTree, 'verenajs');
+
+// Export to React
+const reactCode = generateCode(builderState.componentTree, 'react');
+
+// Export to Vue
+const vueCode = generateCode(builderState.componentTree, 'vue');
+
+// Export to HTML
+const htmlCode = generateCode(builderState.componentTree, 'html');
+```
+
+### Docker Deployment from Builder
+
+The Visual Builder includes built-in Docker deployment:
+
+```javascript
+// Deploy your app directly from the builder
+builder.deploy({
+  target: 'docker',
+  config: {
+    imageName: 'my-app',
+    port: 3000,
+    env: ['NODE_ENV=production']
+  }
+});
+```
+
+See [VISUAL-BUILDER.md](docs/VISUAL-BUILDER.md) for complete documentation.
+
+---
+
 ## Features
 
-### 257+ Production Components
+### 1000+ Production Components
 
-Every component you need, ready to use:
+The most comprehensive UI library available, with components for every use case:
 
 ```javascript
 import {
   // Layout
   createContainer, createGrid, createStack, createSplitter,
+  createMasonry, createSection, createSidebar, createNavbar,
 
   // Forms
   createInput, createButton, createCheckbox, createSelect,
   createDatePicker, createFileUploader, createRichTextEditor,
+  createColorPicker, createSlider, createSwitch, createRadioGroup,
 
   // Display
   createCard, createModal, createAlert, createTooltip,
-  createBadge, createAvatar, createSkeleton,
+  createBadge, createAvatar, createSkeleton, createAccordion,
 
   // Data
   createTable, createDataTable, createList, createTreeView,
+  createVirtualList, createKanban, createTimeline,
 
   // Charts
   createLineChart, createBarChart, createPieChart,
+  createCandlestickChart, createHeatmap, createGauge,
 
-  // Trading
-  createOrderBook, createMarketChart, createTradeHistory
+  // Trading & Financial
+  createOrderBook, createMarketChart, createTradeHistory,
+  createOrderForm, createPortfolio, createWatchlist,
+
+  // Real-time
+  createLiveChart, createTickerTape, createNotificationCenter,
+  createActivityFeed, createPresenceIndicator,
+
+  // AI & ML
+  createChatInterface, createModelViewer, createPredictionCard,
+
+  // DevOps
+  createTerminal, createLogViewer, createMetricsDashboard
 } from 'verenajs';
 ```
 
-### Visual Builder
+### API Management
 
-Build UIs with drag-and-drop:
+Build and manage APIs directly:
 
 ```javascript
-import { toggleBuilder } from 'verenajs/builder';
+import { ApiClient, WebhookManager, BackendConnector } from 'verenajs/core/api-manager';
 
-// Press Ctrl+B or call programmatically
-toggleBuilder();
+// Create API client with caching and retries
+const api = new ApiClient({
+  baseUrl: 'https://api.example.com',
+  cache: { ttl: 300000 },
+  retry: { maxRetries: 3 }
+});
+
+// Webhook management with HMAC signatures
+const webhooks = new WebhookManager({ secret: 'your-secret' });
+webhooks.register({
+  id: 'order-webhook',
+  url: 'https://your-app.com/webhooks/orders',
+  events: ['order.created', 'order.updated']
+});
+
+// Backend connections for multiple languages
+const backend = new BackendConnector();
+await backend.connect('python', { host: 'localhost', port: 5000 });
+await backend.connect('go', { host: 'localhost', port: 8080 });
 ```
 
-<details>
-<summary>Visual Builder Features</summary>
+### Plugin System
 
-- Drag-and-drop component palette
-- Live preview
-- Property inspector
-- Undo/redo history
-- Export to code
-- Keyboard shortcuts
+Extend verenajs with plugins:
 
-</details>
+```javascript
+import { PluginManager } from 'verenajs/core/plugin-manager';
+
+const plugins = new PluginManager();
+
+// Install from marketplace
+await plugins.install('analytics');
+await plugins.install('payments');
+
+// Activate plugins
+await plugins.activate('analytics');
+
+// Use plugin APIs
+const analytics = plugins.getApi('analytics');
+analytics.track('page_view', { page: '/dashboard' });
+```
 
 ### Multi-Platform Compiler
 
@@ -396,54 +528,6 @@ dashboard.appendChild(tableCard);
 document.body.appendChild(dashboard);
 ```
 
-### Building a Form
-
-```javascript
-import {
-  createSmartForm,
-  createInput,
-  createSelect,
-  createButton,
-  createCard
-} from 'verenajs';
-
-const form = createSmartForm({
-  onSubmit: (data) => {
-    console.log('Form data:', data);
-  }
-});
-
-form.appendChild(createInput({
-  name: 'fullName',
-  label: 'Full Name',
-  required: true
-}));
-
-form.appendChild(createInput({
-  name: 'email',
-  label: 'Email',
-  type: 'email',
-  required: true
-}));
-
-form.appendChild(createSelect({
-  name: 'role',
-  label: 'Role',
-  options: [
-    { value: 'developer', label: 'Developer' },
-    { value: 'designer', label: 'Designer' },
-    { value: 'manager', label: 'Manager' }
-  ]
-}));
-
-form.appendChild(createButton({
-  type: 'primary',
-  label: 'Submit'
-}));
-
-document.body.appendChild(form);
-```
-
 ### Trading Application
 
 ```javascript
@@ -489,7 +573,11 @@ document.body.appendChild(tradingLayout);
 | [Architecture](ARCHITECTURE.md) | System design and internals |
 | [Installation](INSTALLATION.md) | Detailed setup guide |
 | [Usage](USAGE.md) | API reference and patterns |
+| [Visual Builder](docs/VISUAL-BUILDER.md) | Complete Visual Builder guide |
 | [Examples](EXAMPLES.md) | Code examples and tutorials |
+| [API Manager](docs/API-MANAGER.md) | API and webhook management |
+| [Plugins](docs/PLUGINS.md) | Plugin development guide |
+| [Docker](docs/DOCKER.md) | Docker deployment guide |
 | [Contributing](CONTRIBUTING.md) | How to contribute |
 | [Changelog](CHANGELOG.md) | Version history |
 | [Roadmap](ROADMAP.md) | Future plans |
@@ -503,11 +591,15 @@ verenajs/
 ├── core/                    # Core runtime
 │   ├── core.js             # Events, store, theme, DOM utils
 │   ├── registry.js         # Component auto-discovery
+│   ├── api-manager.js      # API & webhook management
+│   ├── plugin-manager.js   # Plugin system
+│   ├── docker-integration.js # Docker deployment
 │   ├── zeromq.js           # ZeroMQ communication
 │   ├── opencv.js           # OpenCV integration
 │   └── bridges/qt.js       # Qt native bridge
-├── components/              # 257 UI components
+├── components/              # 1000+ UI components
 ├── builder/                 # Visual Builder
+│   └── AdvancedBuilder.js  # Professional builder
 ├── compiler/                # Multi-target compiler
 │   └── generators/         # Platform generators
 └── index.js                 # Main exports
@@ -548,10 +640,13 @@ npm test
 
 ## Roadmap
 
-- [x] 257 production components
+- [x] 1000+ production components
 - [x] Core runtime with state management
-- [x] Visual Builder
+- [x] Advanced Visual Builder
 - [x] Multi-target compiler
+- [x] API Management & Webhooks
+- [x] Plugin System
+- [x] Docker Integration
 - [x] ZeroMQ integration
 - [x] Qt bridge
 - [x] OpenCV integration
@@ -571,7 +666,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 ---
 
 <p align="center">
-  Built with precision from Kenya 🇰🇪
+  Built with precision from Kenya
 </p>
 
 <p align="center">

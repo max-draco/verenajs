@@ -19,20 +19,65 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Platform detection (`Platform.isWeb`, `Platform.isElectron`, etc.)
 
 #### Component System
+- **1000+ production-ready components** across 40+ categories
 - Central export registry with auto-discovery
-- 80+ components exported directly from main entry point
 - Component namespace (`verenajs.components.*`) for dot-notation access
 - Dynamic component loading with `loadComponent()`
 - Component metadata and categorization
+- Component generation system for rapid development
 
-#### Visual Builder
-- Drag-and-drop component palette
-- Canvas workspace with dropzone
-- Property inspector panel
-- Undo/redo history
-- Code generation and export
-- Keyboard shortcuts (Ctrl+B to toggle, Delete to remove)
-- Responsive three-column layout
+#### Component Categories
+- Layout: Container, Grid, Masonry, Section, Splitter, Sidebar, Navbar
+- Forms: Input, Select, Checkbox, DatePicker, FileUploader, RichTextEditor
+- Display: Card, Modal, Alert, Badge, Avatar, Skeleton, Accordion
+- Data: DataTable, TreeView, VirtualList, Kanban, Timeline
+- Charts: Line, Bar, Pie, Candlestick, Heatmap, Gauge
+- Trading: OrderBook, MarketChart, TradeHistory, OrderForm, Portfolio
+- Real-time: LiveChart, TickerTape, NotificationCenter, ActivityFeed
+- AI: ChatInterface, ModelViewer, PredictionCard
+- DevOps: Terminal, LogViewer, MetricsDashboard
+- And 30+ more categories...
+
+#### Advanced Visual Builder
+- Professional drag-and-drop interface (better than Elementor)
+- Left panel with component palette (1000+ components)
+- Center canvas with device preview (Desktop/Tablet/Mobile)
+- Right panel with property editor (styles, events, data bindings)
+- Bottom panel with console, network, performance, state inspector
+- Layers tree for component hierarchy
+- Multi-page support
+- Undo/redo history (100 steps)
+- Code export to verenajs, React, Vue, HTML
+- Docker deployment dialog
+- Keyboard shortcuts
+
+#### API Management
+- `ApiClient` with caching, retries, and interceptors
+- `WebhookManager` with HMAC signature generation/verification
+- `WebSocketManager` with auto-reconnect
+- `BackendConnector` with adapters for Node.js, Python, Go, PHP
+- `GraphQLClient` with query caching
+- `DataSourceManager` with auto-refresh
+- `ApiEndpointBuilder` with OpenAPI spec generation
+
+#### Plugin System
+- `PluginManager` for plugin lifecycle management
+- Hook system (BEFORE_INIT, AFTER_INIT, STATE_CHANGE, etc.)
+- Built-in plugins: analytics, auth, payments, email, charts, maps
+- `PluginMarketplace` for remote plugin discovery
+
+#### Docker Integration
+- `DockerfileGenerator` with multi-stage build support
+- `DockerComposeGenerator` with templates
+- `KubernetesGenerator` for k8s manifests
+- `CICDGenerator` for GitHub Actions, GitLab CI, Jenkins
+- Project templates: verenajs, static, fullstack, development
+
+#### Project Integration
+- `ProjectScanner` for discovering verenajs usage in external projects
+- `LiveEditorBridge` for in-place editing (Ctrl+E)
+- `NavigatorIntegration` for theschicht markets project
+- Real-time style editing with properties panel
 
 #### Multi-Target Compiler
 - AST-based JavaScript parser
@@ -69,12 +114,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Gesture recognition system
 - Component tree generation from sketches
 
+#### Documentation
+- Comprehensive MD documentation for all features
+- Interactive HTML documentation page
+- Code samples for all components
+- Visual Builder usage guides
+- API reference
+
 ### Changed
 - Package version bumped to 2.0.0
 - Added ES Modules support (`"type": "module"`)
 - Updated exports in package.json for subpath imports
 - Removed React and React-DOM dependencies
 - Removed @babel/preset-react from build
+- Updated README with Visual Builder documentation
+- Expanded architecture documentation
 
 ### Removed
 - React-based components
@@ -129,6 +183,24 @@ npm uninstall react react-dom
 ```
 
 4. Update bundler configuration to handle `.module.css` files
+
+### New Features Available
+
+After migrating, you can use:
+
+```javascript
+// Visual Builder
+import { createAdvancedBuilder } from 'verenajs/builder';
+
+// API Management
+import { ApiClient, WebhookManager } from 'verenajs/core/api-manager';
+
+// Plugin System
+import { PluginManager } from 'verenajs/core/plugin-manager';
+
+// Docker Deployment
+import { DockerfileGenerator } from 'verenajs/core/docker-integration';
+```
 
 ---
 
