@@ -1,53 +1,248 @@
-# Contributing to v++
+# Contributing to verenajs
 
-We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
+Thank you for your interest in contributing to verenajs! This document provides guidelines and instructions for contributing.
 
-- Reporting a bug
-- Discussing the current state of the code
-- Submitting a fix
-- Proposing new features
-- Becoming a maintainer
+## Table of Contents
 
-## We Develop with Github
-We use github to host code, to track issues and feature requests, as well as accept pull requests.
+- [Code of Conduct](#code-of-conduct)
+- [Getting Started](#getting-started)
+- [Development Setup](#development-setup)
+- [Project Structure](#project-structure)
+- [Making Changes](#making-changes)
+- [Pull Requests](#pull-requests)
+- [Coding Standards](#coding-standards)
+- [Component Guidelines](#component-guidelines)
 
-## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
-Pull requests are the best way to propose changes to the codebase. We actively welcome your pull requests:
+---
 
-1. Fork the repo and create your branch from `main`.
-2. If you've added code that should be tested, add tests.
-3. If you've changed APIs, update the documentation.
-4. Ensure the test suite passes.
-5. Make sure your code lints.
-6. Issue that pull request!
+## Code of Conduct
 
-## Any contributions you make will be under the [Your License] Software License
-In short, when you submit code changes, your submissions are understood to be under the same [Your License] that covers the project. Feel free to contact the maintainers if that's a concern.
+Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md). We are committed to providing a welcoming and inspiring community for all.
 
-## Report bugs using Github's [issues](https://github.com/yourproject/yourrepository/issues)
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/yourproject/yourrepository/issues/new); it's that easy!
+---
 
-## Write bug reports with detail, background, and sample code
+## Getting Started
 
-**Great Bug Reports** tend to have:
+### Prerequisites
 
-- A quick summary and/or background
-- Steps to reproduce
-  - Be specific!
-  - Give sample code if you can.
-- What you expected would happen
-- What actually happens
-- Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
+- Node.js 18+
+- npm 9+ or yarn or pnpm
+- Git
 
-People *love* thorough bug reports. I'm not even kidding.
+### Fork and Clone
 
-## Use a Consistent Coding Style
+1. Fork the repository on GitHub
+2. Clone your fork:
 
-* 2 spaces for indentation rather than tabs
-* You can try running `npm run lint` for style unification
+```bash
+git clone https://github.com/YOUR_USERNAME/vplusplus.git
+cd vplusplus
+```
 
-## License
-By contributing, you agree that your contributions will be licensed under its [Your License] License.
+3. Add upstream remote:
 
-## References
-This document was adapted from the open-source contribution guidelines for [Facebook's Draft](https://github.com/facebook/draft-js/blob/master/CONTRIBUTING.md)
+```bash
+git remote add upstream https://github.com/muslihabdiker/vplusplus.git
+```
+
+---
+
+## Development Setup
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start Development Server
+
+```bash
+npm run dev
+```
+
+### Run Tests
+
+```bash
+npm test
+```
+
+### Build
+
+```bash
+npm run build
+```
+
+---
+
+## Project Structure
+
+```
+verenajs/
+├── core/                    # Core runtime
+│   ├── core.js             # Events, store, theme, DOM utils
+│   ├── registry.js         # Component auto-discovery
+│   ├── zeromq.js           # ZeroMQ communication
+│   ├── opencv.js           # OpenCV integration
+│   └── bridges/
+│       └── qt.js           # Qt native bridge
+├── components/              # UI components (257)
+│   ├── buttons/            # Button component
+│   │   ├── index.js        # Component factory
+│   │   └── index.module.css # Scoped styles
+│   └── ...
+├── builder/                 # Visual Builder
+│   ├── index.js            # Builder logic
+│   └── styles.js           # Builder styles
+├── compiler/                # Multi-target compiler
+│   ├── index.js            # Compiler orchestration
+│   ├── parser.js           # AST parser
+│   ├── analyzer.js         # Dependency analysis
+│   ├── optimizer.js        # Optimizations
+│   └── generators/
+│       ├── web.js          # Web bundles
+│       ├── mobile.js       # Capacitor
+│       └── desktop.js      # Electron/Qt
+├── tests/                   # Test files
+├── assets/                  # Static assets
+└── index.js                 # Main entry point
+```
+
+---
+
+## Making Changes
+
+### Branch Naming
+
+- `feature/description` - New features
+- `fix/description` - Bug fixes
+- `docs/description` - Documentation
+- `refactor/description` - Code refactoring
+
+### Workflow
+
+1. Create a new branch:
+```bash
+git checkout -b feature/my-feature
+```
+
+2. Make your changes
+
+3. Test your changes:
+```bash
+npm test
+npm run lint
+```
+
+4. Commit with a descriptive message:
+```bash
+git commit -m "feat: add new button variant"
+```
+
+5. Push to your fork:
+```bash
+git push origin feature/my-feature
+```
+
+6. Open a Pull Request
+
+---
+
+## Pull Requests
+
+### PR Checklist
+
+- [ ] Code follows project style guidelines
+- [ ] Tests pass locally
+- [ ] New tests added for new features
+- [ ] Documentation updated if needed
+- [ ] No console.log statements left
+- [ ] Commits are clean and atomic
+
+### PR Title Format
+
+Use conventional commits format:
+
+- `feat: add new component`
+- `fix: resolve button click issue`
+- `docs: update installation guide`
+- `refactor: simplify state management`
+- `test: add unit tests for router`
+- `chore: update dependencies`
+
+---
+
+## Coding Standards
+
+### JavaScript
+
+- Use ES Modules (`import`/`export`)
+- Use `const` by default, `let` when needed
+- No `var`
+- Use arrow functions for callbacks
+- 2-space indentation
+
+```javascript
+// Good
+const createComponent = ({ label, onClick }) => {
+  const el = document.createElement('div');
+  el.textContent = label;
+  el.addEventListener('click', onClick);
+  return el;
+};
+```
+
+### CSS
+
+- Use CSS Modules for component styles
+- Use CSS custom properties for theming
+
+```css
+/* index.module.css */
+.button {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.buttonPrimary {
+  background: var(--primary, #3b82f6);
+  color: white;
+}
+```
+
+---
+
+## Component Guidelines
+
+### Component Structure
+
+```javascript
+// components/MyComponent/index.js
+import styles from './index.module.css';
+
+export function createMyComponent({ label, onClick = () => {} }) {
+  const el = document.createElement('div');
+  el.classList.add(styles.myComponent);
+  el.textContent = label;
+  el.addEventListener('click', onClick);
+  return el;
+}
+```
+
+### Component Checklist
+
+- [ ] Uses factory pattern (returns DOM element)
+- [ ] Uses CSS Modules for styling
+- [ ] Handles events properly
+- [ ] Is accessible (ARIA attributes where needed)
+- [ ] Is exported from index.js
+
+---
+
+## Questions?
+
+- Open an [issue](https://github.com/muslihabdiker/vplusplus/issues)
+- Check existing issues and PRs
+- Read the [FAQ](FAQ.md)
+
+Thank you for contributing to verenajs!
