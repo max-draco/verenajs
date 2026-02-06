@@ -1,0 +1,8 @@
+/* Media Component Styles */
+.player { position: relative; border-radius: 12px; overflow: hidden; background: #000; }
+.controls { display: flex; align-items: center; gap: 12px; padding: 12px; }
+.progress { flex: 1; height: 4px; border-radius: 2px; cursor: pointer; }
+.gallery { display: grid; gap: 8px; }
+.lightbox { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.9); }
+.cropper { position: relative; overflow: hidden; cursor: crosshair; }
+.cropHandle { position: absolute; width: 10px; height: 10px; border: 2px solid #fff; border-radius: 50%; }

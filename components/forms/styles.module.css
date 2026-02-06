@@ -1,0 +1,15 @@
+/* Advanced Forms Component Styles */
+.editor { border-radius: 12px; overflow: hidden; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 4px; padding: 8px; }
+.toolbarBtn { padding: 6px 8px; border-radius: 6px; border: none; cursor: pointer; transition: background 0.15s; }
+.toolbarBtn:hover { opacity: 0.8; }
+.toolbarBtn.active { font-weight: 700; }
+.content { padding: 16px; min-height: 120px; outline: none; }
+.colorPicker { position: relative; }
+.colorSwatch { width: 32px; height: 32px; border-radius: 8px; cursor: pointer; border: 2px solid transparent; }
+.calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.calendarDay { padding: 8px; text-align: center; border-radius: 8px; cursor: pointer; }
+.tag { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+.slider { position: relative; width: 100%; }
+.track { height: 6px; border-radius: 3px; }
+.thumb { width: 18px; height: 18px; border-radius: 50%; position: absolute; top: 50%; transform: translateY(-50%); cursor: grab; }
